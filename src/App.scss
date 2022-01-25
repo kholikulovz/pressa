@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('./Assets/Fonts/bebas-neue-v2-latin-regular.woff2') format('woff2'), 
+       url('./Assets/Fonts/bebas-neue-v2-latin-regular.woff') format('woff'); 
+}
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('./Assets/Fonts/Gilroy-Light.woff2') format('woff2'), 
+       url('./Assets/Fonts/Gilroy-Light.woff') format('woff'); 
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  // font-family: "Mulish";
+  // background-color: #17171E;
+  // background-color: #fff;
+}
+.App{
+  // display: flex;
+  // flex-direction: column;
+  min-height: 73vh;
+}
+.container{
+  width: 1320px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+.svg__sprit{
+  display: none;
+}
