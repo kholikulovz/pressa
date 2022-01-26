@@ -1,0 +1,26 @@
+@mixin button{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    padding: 12px 24px;
+    color: #355199;
+    background-color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    &:hover{
+        box-shadow:  0 0 5px #fff;
+        transition: .1s;
+    }
+}
+@mixin buttonLight {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: rgba($color: #fff, $alpha: .6);    
+    cursor: pointer;
+    &:hover{
+        color: rgba($color: #fff, $alpha: .8);
+        transition: .1s;
+    }
+    
+}

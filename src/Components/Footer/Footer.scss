@@ -1,24 +1,71 @@
+@import '../../ScssTemplates/templates.scss';
 .footer{
+    &__item-link{
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
+        color: #FFFFFF;
+        cursor: pointer;
+        &:hover{
+            color: rgba($color: #fff, $alpha: .6);
+            transition: .1s;
+        }
+    }
     background-color: #355199;
     padding: 40px 0;
+    list-style-type: none;
+    &__logo{
+        font-family: Gilroy;
+        font-weight: 600;
+        font-size: 40px;
+        line-height: 40px;
+        color: #FFFFFF;
+        margin-right: 90px;
+    }
     &__nav{
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
     }
+    &__left{
+        display: flex;
+        align-items: center;
+    }
+    &__right{
+        display: flex;
+    }
     &__navlink{
         display: flex;
         flex-direction: row;
         align-items: center;
+        &-item{
+            @include buttonLight;
+            margin-right: 50px;
+        }
     }
     &__social{
         display: flex;
-        flex-direction: row;
-        align-items: center;
-        &-icon{
-                width: 26px;
-                height: 26px;
+        align-items: center !important;
+        
+        &-item{
+            width: 26px;
+            height: 26px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            margin-right: 42px;
+            &:last-child{
+                margin-right: 0;
             }
+        }
+        &-link{
+            color: #fff;
+            cursor: pointer;
+            &:hover{
+                color: rgba($color: #FFF, $alpha: .5);
+                transition: .1s;
+            }
+        }
     }
 }

@@ -7,7 +7,7 @@ function Header() {
 <header className='header'>
   <div className='header__nav container'>
   <ul className="header__left header__nav">
-    <li className="header__left-item header__nav-item">Pressa</li>
+    <li className="header__left-item header__nav-item logo">Pressa</li>
     <li className="header__left-item header__nav-item">Kategoriya</li>
   </ul>
   <ul className="header__right header__nav">

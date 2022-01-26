@@ -1,15 +1,31 @@
+@import '../../ScssTemplates/templates.scss';
+
 .header{
     background-color: #355199;
     padding: 26px 0;
     &__nav{
+        font-family: Gilroy;
         display: flex;
+        font-weight: 400;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+        .logo{
+            font-weight: 600;
+            font-size: 40px;
+            line-height: 48px;
+            color: #FFFFFF;
+            cursor: auto;
+            
+        }
         &-item{
             margin-right: 40px;
+            display: flex;
+            align-items: center;
+            @include buttonLight;
             &:last-child{
                 margin-right: 0;
+                @include button;
             }
         }
     }
