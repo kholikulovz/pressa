@@ -15,12 +15,19 @@
     padding: 40px 0;
     list-style-type: none;
     &__logo{
-        font-family: Gilroy;
-        font-weight: 600;
-        font-size: 40px;
+        font-family: HomepageBaukasten;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        font-size: 36px;
         line-height: 40px;
         color: #FFFFFF;
+        cursor: auto;
         margin-right: 90px;
+        &__img{
+            margin-right: 10px;
+        }
     }
     &__nav{
         display: flex;

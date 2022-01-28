@@ -5,13 +5,14 @@ import Instagram from '../../Assets/svg/instagram.tsx';
 import Telegram from '../../Assets/svg/telegram.tsx';
 import Tiktok from '../../Assets/svg/tik-tok.tsx';
 import Youtube from '../../Assets/svg/Youtube.tsx';
+import logo  from '../../Assets/Images/logo.png'
 function AppRouter() {
   return(
     <>
     <footer className='footer'>
     <div className='footer__nav container'>
     <div className="footer__left">
-    <li className="footer__nav-item footer__logo">Pressa</li>
+    <li className="footer__nav-item footer__logo"><img src={logo} alt="" className="footer__logo__img" />Pressa</li>
     <ul className='footer__nav-item footer__social'>
     <li className='footer__social-item'>
     <a href="#" className='footer__social-link'><Telegram/></a>

@@ -1,19 +1,18 @@
+@import './Assets/Fonts/stylesheet.scss';
 @font-face {
-  font-family: 'Bebas Neue';
-  font-style: normal;
-  font-weight: 400;
-  src: local(''),
-       url('./Assets/Fonts/bebas-neue-v2-latin-regular.woff2') format('woff2'), 
-       url('./Assets/Fonts/bebas-neue-v2-latin-regular.woff') format('woff'); 
+  font-family: "HomepageBaukasten";
+  src: url("./Assets/Fonts/HomepageBaukasten.woff2") format("woff2"),
+       url("./Assets/Fonts/HomepageBaukasten.woff") format("woff");
 }
+
 @font-face {
-  font-family: 'Gilroy';
-  font-style: normal;
-  font-weight: 400;
-  src: local(''),
-       url('./Assets/Fonts/Gilroy-Light.woff2') format('woff2'), 
-       url('./Assets/Fonts/Gilroy-Light.woff') format('woff'); 
+  font-family: "SFPRODISPLAYREGULAR";
+  src: url("./Assets/Fonts/SFPRODISPLAYREGULAR.woff2") format("woff2"),
+       url("./Assets/Fonts/SFPRODISPLAYREGULAR.woff") format("woff");
 }
+
+
+
 
 *,
 *::before,
