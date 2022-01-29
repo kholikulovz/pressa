@@ -1,17 +1,19 @@
 import React from 'react';
+import { Router, useParams } from 'react-router-dom';
 import './App.scss';
-// ------------------------
 import Header from './Components/Header/Header';
-import Footer from './Components/Footer/Footer'
+import Home from './Pages/Home/Home';
+// ------------------------
+import { Route, Routes } from 'react-router-dom';
+
 
 function App() {
   return (
     <>
-      <Header/>
-    <div className='App'>
-{/* <main className="main"></main> */}
-    </div>
-      <Footer/>
+    <Header/>
+    <Routes>
+      <Route path='/' element={<Home/>}></Route>
+    </Routes>
    </>
   );
 }

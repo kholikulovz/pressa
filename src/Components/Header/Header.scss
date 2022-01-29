@@ -1,103 +1,75 @@
 @import '../../ScssTemplates/templates.scss';
 
 .header{
-    background-color: #355199;
-    padding: 26px 0;
-    &__nav{
-        font-family: Gilroy;
+    position: relative;
+    font-style: normal;
+    z-index: 1;
+    color: #3C4866;
+    height: 100px;
+    padding: 30px 0;
+    &__wrapper{
         display: flex;
-        font-weight: 400;
-        flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        .logo{
-            font-family: HomepageBaukasten;
-            text-transform: uppercase;
-            font-weight: bold;
-            font-size: 36px;
-            line-height: 40px;
-            color: #FFFFFF;
-            cursor: auto;
-            &__img{
-                margin-right: 10px;
-            }
+    }
+    &__logo{
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 40px;
+    }
+    &__list{
+        display: flex;
+        align-items: center;
+    }
+    &__item{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: -0.02em;
+        margin-right: 40px;
+      
             
-        }
         
         
-        &-item{
-            margin-right: 40px;
-            display: flex;
-            align-items: center;
-            @include buttonLight;
-            &:last-child{
-                margin-right: 0;
-                @include button;
-            }
-        }
     }
 }
 
-// unique classes
-.category{
-    position: relative !important;
-    display: flex;
-    align-items: center;
-    padding-right: 18px !important;
-    padding-left: 20px !important;
-    &__list{
-        position: absolute;
-        z-index: 1;
-        padding-bottom: 0;
-        background: #FFFFFF;
-        border: 1px solid #CFDCFD;
-        box-sizing: border-box;
-        box-shadow: 0px 4px 40px rgba(53, 81, 153, 0.1);
-        top: 0;
-        left: 105%;
-        border-radius: 6px;
-        width: 180px;
-        &:hover{
-            box-shadow:  0 0 5px #fff;
-            transition: .1s;
-        }
+.add{
+    color: #fff;
+    
+    box-shadow:  0 0 15px #FF7D35;
+    @include button;
+    &:hover{
+    animation-name: btn;
+    animation-timing-function: linear;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
     }
-    &__item{
-        
-        font-family: SFPRODISPLAYREGULAR;
-        border-left: 4px solid transparent;
-        padding: 10px 20px;
-        font-weight: normal;
-        font-size: 18px;
-        line-height: 22px;
-        &:hover{
-            background-color: rgba(16, 81, 245, 0.2);
-            border-left: 4px solid #1051F5;
-        }
-        
+    &:active{
+        color: #fff !important;
     }
-    
-    
-    
-    &__dropdown{
-        position: relative;
-        &-list{
-            @extend .category__list;
-            width: 220px;
-            top: -20px;
-            left: 70%
-        }
-        &-item{
-            @extend .category__item;
-            font-weight: normal;
-            padding: 9px 18px;
-            
-            font-size: 15px;
-            line-height: 18px;
-            
-        }
+
+}
+.active{
+   color: #FF7D35;
+}
+.link{
+    &-page:hover{
+        color: rgba($color: #3C4866, $alpha: .7);
+    }
+    &:active{
+        color:#3C4866 ;
     }
 }
-.arrow{
-    margin-left: 11.5px;
+@keyframes btn{
+    0%{
+        box-shadow:  0 0 15px #FF7D35;
+    }
+    50%{
+        box-shadow:  0 0 0 #FF7D35;
+    }
+    100%{
+        box-shadow:  0 0 15px #FF7D35;
+    }
 }
