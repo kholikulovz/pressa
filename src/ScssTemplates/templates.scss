@@ -9,13 +9,10 @@
 }
 @mixin buttonLight {
     font-weight: 500;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 24px;
-    color: rgba($color: #fff, $alpha: .6);    
+    color: #3C4866;
+    background-color: transparent;
+    border: none;
     cursor: pointer;
-    &:hover{
-        color: rgba($color: #fff, $alpha: .8);
-        transition: .1s;
-    }
-    
 }

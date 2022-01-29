@@ -37,12 +37,12 @@
 .add{
     color: #fff;
     
-    box-shadow:  0 0 15px #FF7D35;
+    box-shadow:  0 0 10px #FF7D35;
     @include button;
     &:hover{
     animation-name: btn;
     animation-timing-function: linear;
-    animation-duration: 2s;
+    animation-duration: 1.5s;
     animation-iteration-count: infinite;
     animation-play-state: running;
     }
@@ -55,6 +55,7 @@
    color: #FF7D35;
 }
 .link{
+    color: #3C4866;
     &-page:hover{
         color: rgba($color: #3C4866, $alpha: .7);
     }
@@ -64,12 +65,12 @@
 }
 @keyframes btn{
     0%{
-        box-shadow:  0 0 15px #FF7D35;
+        box-shadow:  0 0 10px #FF7D35;
     }
     50%{
         box-shadow:  0 0 0 #FF7D35;
     }
     100%{
-        box-shadow:  0 0 15px #FF7D35;
+        box-shadow:  0 0 10px #FF7D35;
     }
 }
