@@ -1,10 +1,10 @@
 import React from 'react';
 import './Header.scss';
 import { NavLink, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 function Header(){
-
-
+   
   return (
     <header className="header">
     <div className="container">
@@ -18,7 +18,7 @@ function Header(){
         <li className="header__item">
           <NavLink className='link link-page' to='/enter'>Kirish</NavLink></li>
         <li className="header__item"> 
-        <Link className='link add' to='/add'>+E'lon berish</Link></li>
+        <Link className='link add' to='/announce'>+E'lon berish</Link></li>
          
           
          
