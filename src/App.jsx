@@ -6,6 +6,8 @@ import Home from './Pages/Home/Home';
 import Announce from './Pages/Home/Announce/Announce';
 // ------------------------
 import { Route, Routes } from 'react-router-dom';
+import Single from './Pages/Single/Single';
+import About from './Pages/About/About';
 
 
 function App() {
@@ -14,6 +16,8 @@ function App() {
     <Header/>
     <Routes>
       <Route path='/' element={<Home/>}></Route>
+      <Route path='/single' element={<Single/>}></Route>
+      <Route path='/about' element={<About/>}></Route>
       <Route path='/announce' element={<Announce/>}></Route>
     </Routes>
    </>

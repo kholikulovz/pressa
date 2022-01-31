@@ -1,8 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Announce.scss";
 import { Link } from "react-router-dom";
-// import AdapterDateFns from '@mui/lab/AdapterDateFns';
-// import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import Button from '@mui/material/Button';
 
 function Announce() {
   return (
@@ -35,7 +34,7 @@ function Announce() {
             <li className="announce__form-box announce__form-box--small">
             <label className="announce__form-label" htmlFor="">Yo’nalishni belgilang</label>
             <select className="announce__form-input" name="route" id="">
-              <option value="" disabled selected>
+              <option className="" value="" disabled selected>
                 Yo’nalish
               </option>
             </select>
@@ -51,26 +50,20 @@ function Announce() {
            <li className="announce__form-box announce__form-box--small">
            <label className="announce__form-label" htmlFor="">Tadbir turi</label>
             <div className="announce__criteria-buttons">
-            <button>Online</button>
-            <button>Offline</button>
+            {/* <button>Online</button>
+            <button>Offline</button> */}
+            <Button className="announce__criteria-btn" variant="outlined" size="large">
+          Online
+        </Button>
+        <Button className="announce__criteria-btn" variant="contained" size="large">
+          Offline
+        </Button>
             </div>
            </li>
             <li className="announce__form-box announce__form-box--middle">
             <label className="announce__form-label" htmlFor="">Link kiriting</label>
             <input className="announce__form-input" type="text" placeholder="Link"/>
             </li>
-            {/* <li>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
-  <DateTimePicker
-    renderInput={(props) => <TextField {...props} />}
-    label="DateTimePicker"
-    value={value}
-    onChange={(newValue) => {
-      setValue(newValue);
-    }}
-  />
-</LocalizationProvider>
-            </li> */}
            </ul>
           </form>
         </div>
@@ -92,8 +85,8 @@ function Announce() {
            </li>
            <li className="announce__form-box announce__form-box--small">
            <label className="announce__form-label" htmlFor="">Kasb</label>
-            <select className="announce__form-input" name="inner-route" id="">
-              <option value="" disabled selected>
+            <select className="announce__form-input announce__form-select" name="inner-route" id="">
+              <option className="announce__form-option" value="" disabled selected>
                 Kasbingiz
               </option>
             </select>
@@ -103,8 +96,9 @@ function Announce() {
         </div>
         <div className="announce__post announce__cards">
           <h3 className="announce__cards-title">Post</h3>
-          <form action="" className="announce__form">
-           <ul className="announce__form-menu">
+          <form action="" className="announce__form ">
+          <div className="announce__form-sides">
+          <ul className="announce__form-menu">
               <li className="announce__form-box announce__form-box--big">
            <label className="announce__form-label" htmlFor="">Mavzu nomini kiriting</label>
             <input className="announce__form-input" type="text" placeholder="Mavzu"/>
@@ -113,7 +107,21 @@ function Announce() {
            <label className="announce__form-label" htmlFor="">Qisqa izoh kiriting</label>
             <input className="announce__form-input" type="text" placeholder="Izoh"/>
            </li>
+              <li className="announce__form-box announce__form-box--big">
+           <label className="announce__form-label" htmlFor="">Batafsil ma'lumot</label>
+            <textarea className="announce__form-input" name="" id="" cols="30" rows="10" placeholder="Batafsil ma'lumot"></textarea>
+           </li>
            </ul>
+           <input type="file" name="image"  src="" alt="" placeholder=""/>
+          </div>
+          <div className="announce__post-buttons">
+            <button className="announce__post-btn announce__post-btn--white" >
+          Bekor qilish
+        </button>
+        <button className="announce__post-btn announce__post-btn--blue">
+          Yuborish
+        </button>
+            </div>
           </form>
         </div>
       </div>
