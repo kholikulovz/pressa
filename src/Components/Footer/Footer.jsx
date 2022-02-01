@@ -1,51 +1,32 @@
-import React from 'react';
+
+
+import { NavLink } from 'react-router-dom';
 import './Footer.scss';
-import Facebook from '../../Assets/svg/facesbook.tsx';
-import Instagram from '../../Assets/svg/instagram.tsx';
-import Telegram from '../../Assets/svg/telegram.tsx';
-import Tiktok from '../../Assets/svg/tik-tok.tsx';
-import Youtube from '../../Assets/svg/Youtube.tsx';
-import logo  from '../../Assets/Images/logo.png'
-function AppRouter() {
-  return(
-    <>
-    <footer className='footer'>
-    <div className='footer__nav container'>
-    <div className="footer__left">
-    <li className="footer__nav-item footer__logo"><img src={logo} alt="" className="footer__logo__img" />Pressa</li>
-    <ul className='footer__nav-item footer__social'>
-    <li className='footer__social-item'>
-    <a href="#" className='footer__social-link'><Telegram/></a>
-    </li>
-    <li className='footer__social-item'>
-    <a href="#" className='footer__social-link'><Facebook/></a>
-    </li>
-    <li className='footer__social-item'>
-    <a href="#" className='footer__social-link'><Instagram/></a>
-    </li>
-    <li className='footer__social-item'>
-    <a href="#" className='footer__social-link'><Tiktok/></a>
-    </li>
-    <li className='footer__social-item'>
-    <a href="#" className='footer__social-link'><Youtube/></a>
-    </li>
-    
-    
-    </ul>
-    </div>
-    <div className="footer__right">
-    <ul className="footer__nav-item footer__navlink">
-    <li className="footer__navlink-item">Loyiha haqida</li>
-    <li className="footer__navlink-item">Yordam</li>
-    </ul>
-    
-    <li className="footer__item"><a href="#" className="footer__item-link">+998 (90) 325-36-32</a></li>
-    </div>
-    </div>
+
+
+function Footer() {
+
+
+
+  return (
+    <footer className="footer">
+      <div className="container">
+        <section className="footer__top">
+          <NavLink className='footer__logo' to='/'>Pressa</NavLink>
+          <div className="footer__link-wrapper">
+            <NavLink className='footer__link' to='/about'>Loyiha haqida</NavLink>
+            <NavLink className='footer__link' to='/help'>Yordam</NavLink>
+          </div>
+          <div className="footer__social">
+            <a href="https://www.facebook.com/" className="footer__social-link">Facebook</a>
+            <a href="https://www.instagram.com/" className="footer__social-link">Instagram</a>
+            <a href="https://telegram.org/" className="footer__social-link">Telegram</a>
+          </div>
+          <a href="tel:+998 90 123-45-67" className="footer__phone">+998 90 123-45-67</a>
+        </section>
+        <span className='footer__copyright'>Copyright 2022</span>
+      </div>
     </footer>
-    </>
-    )
-  }
-  
-  export default AppRouter;
-  
+  )
+}
+export default Footer

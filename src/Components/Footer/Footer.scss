@@ -1,78 +1,167 @@
-@import '../../ScssTemplates/templates.scss';
 .footer{
-    &__item-link{
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 24px;
-        color: #FFFFFF;
-        cursor: pointer;
-        &:hover{
-            color: rgba($color: #fff, $alpha: .6);
-            transition: .1s;
-        }
-    }
-    background-color: #355199;
-    padding: 40px 0;
-    list-style-type: none;
-    &__logo{
-        font-family: HomepageBaukasten;
-        text-transform: uppercase;
+    margin-top: 150px;
+    padding: 30px 0 20px;
+    background: linear-gradient(42.98deg, #D1D5E1 8.79%, #FCF1E9 89.03%), #C4C4C4;
+    &__top{
         display: flex;
-        align-items: center;
-        font-weight: bold;
-        font-size: 36px;
-        line-height: 40px;
-        color: #FFFFFF;
-        cursor: auto;
-        margin-right: 90px;
-        &__img{
-            margin-right: 10px;
-        }
-    }
-    &__nav{
-        display: flex;
-        flex-direction: row;
         align-items: center;
         justify-content: space-between;
     }
-    &__left{
-        display: flex;
-        align-items: center;
+    &__logo{
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 40px;
+        color: #3C4866;
+        &:hover{
+            color: rgba($color: #3C4866, $alpha: .7);
+        }
     }
-    &__right{
-        display: flex;
-    }
-    &__navlink{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        &-item{
-            @include buttonLight;
-            margin-right: 50px;
+    &__link{
+        &-wrapper{
+            display: flex;
+            align-items: center;
+        }
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        cursor: pointer;
+        color: #3C4866;
+        margin-right: 50px;
+        &:last-child{
+            margin-right: 10px;
+        }
+        &:hover{
+            color: rgba($color: #3C4866, $alpha: .7);
         }
     }
     &__social{
         display: flex;
-        align-items: center !important;
-        
-        &-item{
-            width: 26px;
-            height: 26px;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            margin-right: 42px;
+        align-items: center;
+        &-link{
+            margin-right:30px;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            color: rgba($color: #3C4866, $alpha: .4);
+            cursor: pointer;
             &:last-child{
-                margin-right: 0;
+                margin-right: 10px;
+            }
+            &:hover{
+                color: rgba($color: #3C4866, $alpha: .7);
             }
         }
-        &-link{
-            color: #fff;
-            cursor: pointer;
-            &:hover{
-                color: rgba($color: #FFF, $alpha: .5);
-                transition: .1s;
-            }
+       
+    }
+    &__phone{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        color: #3C4866;
+        &:hover{
+            color: rgba($color: #3C4866, $alpha: .7);
         }
     }
+    &__copyright{
+        display: inline-block;
+        margin-top: 15px;
+        font-size: 12px;
+        line-height: 18px;
+        color: #3C4866;
+        
+    }
+}
+
+@media screen and (max-width:744px) {
+    .footer{
+        margin-top: 100px;
+        &__top{
+            position: relative;
+        }
+        &__social{
+            position: absolute;
+            bottom: -70px;
+            display: flex;
+        }
+        &__copyright{
+            margin-top: 134px;
+        }
+    }
+}
+
+@media screen and (max-width:425px) {
+    .footer{
+        margin-top: 60px;
+        padding: 40px 0 20px;
+        &__top{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        &__logo{
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 40px;
+            color: #3C4866;
+            &:hover{
+                color: rgba($color: #3C4866, $alpha: .7);
+            }
+        }
+        &__link{
+            &-wrapper{
+                display: flex;
+                align-items: center;
+            }
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            cursor: pointer;
+            color: #3C4866;
+            margin-right: 50px;
+            &:last-child{
+                margin-right: 10px;
+            }
+            &:hover{
+                color: rgba($color: #3C4866, $alpha: .7);
+            }
+        }
+        &__social{
+            display: flex;
+            align-items: center;
+            &-link{
+                margin-right:30px;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 24px;
+                color: rgba($color: #3C4866, $alpha: .4);
+                cursor: pointer;
+                &:last-child{
+                    margin-right: 10px;
+                }
+                &:hover{
+                    color: rgba($color: #3C4866, $alpha: .7);
+                }
+            }
+           
+        }
+        &__phone{
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            color: #3C4866;
+            &:hover{
+                color: rgba($color: #3C4866, $alpha: .7);
+            }
+        }
+        &__copyright{
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 12px;
+            line-height: 18px;
+            color: #3C4866;
+            
+        }
+    }
+       
+    
 }

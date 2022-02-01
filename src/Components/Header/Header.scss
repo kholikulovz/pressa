@@ -1,7 +1,6 @@
 @import '../../ScssTemplates/templates.scss';
 
 .header{
-    position: relative;
     font-style: normal;
     z-index: 1;
     color: #3C4866;
@@ -12,10 +11,17 @@
         align-items: center;
         justify-content: space-between;
     }
+    &__left{
+        display: flex;
+        align-items:center ;
+        justify-content: space-between;
+    }
     &__logo{
-        font-weight: 800;
-        font-size: 24px;
-        line-height: 40px;
+        font-weight: 800 !important;
+        font-size: 24px !important;
+        line-height: 40px !important;
+        color: #3C4866 !important;
+  
     }
     &__list{
         display: flex;
@@ -26,33 +32,56 @@
         font-size: 16px;
         line-height: 24px;
         letter-spacing: -0.02em;
-        margin-right: 40px;
-      
-            
-        
-        
+        margin-right: 40px;  
+    }
+    &__menu-icon{
+        padding: 6px 3px;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+        z-index: 3;
+        .menu{
+            &__icon{
+                box-sizing: border-box;
+                width: 18px;
+                height: 2px;
+                border: none;
+                border-radius: 2px;
+                background-color:#383779;
+                margin-bottom: 6px;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+            }
+            &__active{
+                display: flex;
+            }
+        }
     }
 }
 
 .add{
     color: #fff !important;
-    
+    margin-left: 10px;
     box-shadow:  0 0 10px #FF7D35;
     @include button;
     &:hover{
-    animation-name: btn;
-    animation-timing-function: linear;
-    animation-duration: 1.5s;
-    animation-iteration-count: infinite;
-    animation-play-state: running;
+        animation-name: btn;
+        animation-timing-function: linear;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        animation-play-state: running;
     }
     &:active{
         color: #fff !important;
     }
-
+    
 }
 .active{
-   color: #FF7D35;
+    color: #FF7D35;
 }
 .link{
     color: #3C4866;
@@ -62,7 +91,10 @@
     &:active{
         color:#3C4866 ;
     }
+    
 }
+
+
 @keyframes btn{
     0%{
         box-shadow:  0 0 10px #FF7D35;
@@ -73,4 +105,120 @@
     100%{
         box-shadow:  0 0 10px #FF7D35;
     }
+}
+
+
+@media screen and (max-width:744px) {
+    .header{
+        &__item{
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: -0.02em;
+            margin-right: 30px;
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+    
+    
+}
+@media screen and (max-width:425px){
+    .header{
+        .mobile__modal{
+            position:fixed;
+            display: none;
+            z-index: 1;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-color: rgba($color: #000000, $alpha: .5);
+        }
+        .modal__active{
+            display: block;
+        }
+        .list__active{
+            transform: translateX(0) !important;
+            transition: .3s ease-in-out !important;
+        }
+        .modal{
+            &__icon{
+                position: fixed!important;
+                top: 50px;
+                right: 40px;
+                
+            }
+            &__icon-item{
+                background-color: #fff !important;
+                position: absolute !important;
+                margin: 0 !important;
+                &:first-child{
+                    transform: rotate(45deg) !important;
+                    transition: .3s;
+                }
+                &:nth-child(2){
+                    display: none !important;
+                }
+                &:last-child{
+                    transform: rotate(-45deg) !important;
+                    transition: .5s ease-out;
+
+                }
+                
+            }
+        }
+        &__list{
+            padding-top: 64px;
+            position: absolute;
+            background-color: rgba($color: #000000, $alpha: .8);
+            right: 0;
+            flex-direction: column;
+            align-items: flex-end;
+            height: 100%;
+            width: 50%;
+            padding-left: 20px;
+            padding-right: 40px;
+            transform: translateX(100%) !important;
+            
+        }
+        &__item{
+            margin-right: 0;
+            margin-top: 15px;
+        }
+        
+        &__menu-icon{
+            padding: 6px 3px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+            z-index: 10;
+            .menu{
+                &__icon{
+                    box-sizing: border-box;
+                    width: 18px;
+                    height: 2px;
+                    border: none;
+                    border-radius: 2px;
+                    background-color:#383779;
+                    margin-bottom: 6px;
+                    &:last-child{
+                        margin-bottom: 0;
+                    }
+                }
+                
+            }
+        }
+    }
+    
+    .active{
+        color: #FF7D35 !important;
+        
+    }
+
+    
 }

@@ -66,10 +66,7 @@ body {
   margin: 0;
 }
 .App{
-  // display: flex;
-  // flex-direction: column;
   min-height: 73vh;
-  /* width */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -133,3 +130,21 @@ a {
 
 //designing the App itself;
 
+
+
+@media screen and (max-width:744px) {
+  .container{
+    width: 684px;
+    padding: 0 30px;
+  }
+  
+  
+}
+@media screen and (max-width:425px) {
+  .container{
+    width: 385px;
+    padding: 0 20px;
+  }
+  
+  
+}
