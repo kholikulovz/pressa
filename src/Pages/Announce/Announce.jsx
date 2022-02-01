@@ -1,8 +1,6 @@
 import React from "react";
 import "./Announce.scss";
 import { Link } from "react-router-dom";
-// import AdapterDateFns from '@mui/lab/AdapterDateFns';
-// import LocalizationProvider from '@mui/lab/LocalizationProvider';
 
 function Announce() {
   return (
@@ -59,18 +57,6 @@ function Announce() {
                 <label className="announce__form-label" htmlFor="">Link kiriting</label>
                 <input className="announce__form-input" type="text" placeholder="Link" />
               </li>
-              {/* <li>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
-  <DateTimePicker
-    renderInput={(props) => <TextField {...props} />}
-    label="DateTimePicker"
-    value={value}
-    onChange={(newValue) => {
-      setValue(newValue);
-    }}
-  />
-</LocalizationProvider>
-            </li> */}
             </ul>
           </form>
         </div>
