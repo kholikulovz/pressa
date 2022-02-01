@@ -7,18 +7,22 @@ import Announce from './Pages/Announce/Announce';
 import Footer from './Components/Footer/Footer';
 // ------------------------
 import { Route, Routes } from 'react-router-dom';
+import Single from './Pages/Single/Single';
+import About from './Pages/About/About';
 
 
 function App() {
   return (
     <>
-      <Header />
-      <Routes>
-        <Route path='/' element={<Home />}></Route>
-        <Route path='/announce' element={<Announce />}></Route>
-      </Routes>
-      <Footer />
-    </>
+    <Header/>
+    <Routes>
+      <Route path='/' element={<Home/>}></Route>
+      <Route path='/single' element={<Single/>}></Route>
+      <Route path='/about' element={<About/>}></Route>
+      <Route path='/announce' element={<Announce/>}></Route>
+    </Routes>
+     <Footer />
+   </>
   );
 }
 
