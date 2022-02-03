@@ -49,8 +49,8 @@ function Announce() {
               <li className="announce__form-box announce__form-box--small">
                 <label className="announce__form-label" htmlFor="">Tadbir turi</label>
                 <div className="announce__criteria-buttons">
-                  <button>Online</button>
-                  <button>Offline</button>
+                  <button className="announce__criteria-btn">Online</button>
+                  <button className="announce__criteria-btn">Offline</button>
                 </div>
               </li>
               <li className="announce__form-box announce__form-box--middle">

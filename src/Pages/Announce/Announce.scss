@@ -39,6 +39,30 @@
     }
     &__criteria{
         padding-right: 400px;
+        &-buttons{
+            width: 226px;
+            height: 52px;
+            background: #FFFFFF;
+            border: 1px solid rgba(53, 81, 153, 0.15);
+            border-radius: 7px;
+        }
+        &-btn{
+            width: 111px;
+            height: 48px;
+            border: none;
+            background-color: white;
+            font-size: 16px;
+            line-height: 22px;
+            &--active{
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 22px;
+                letter-spacing: 0.01em;
+                color: #FFFFFF;
+                background: #3586FF;
+                border-radius: 6px;
+            }
+        }
     }
     &__post{
         &-buttons{

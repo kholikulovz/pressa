@@ -1,6 +1,7 @@
 import React from "react";
 import './Single.scss'
 import { Link } from "react-router-dom";
+// import ShareBtn from 'react-share-button';
 
 
 //import images
@@ -16,10 +17,10 @@ function Single() {
     <div className="single">
      <div className="container">
      <div className="single__link">
-        <Link className="single__navlink" to="/">
+        <Link className="single__navlink intro__link--inactive" to="/">
           Bosh sahifa |
         </Link>
-        <Link className="single__navlink" to="/">
+        <Link className="single__navlink intro__link--active" to="/">
           100 yillik strategiya
         </Link>
       </div>
@@ -49,16 +50,15 @@ function Single() {
 📌 Imkoniyatni boy bermang, oʻz kelajagingiz uchun muhim qarorni qabul qilishning ayni vaqti! 
 <br />
 <br />
-📝 Manzil:  (https://forms.gle/qkdmQpjrA6niSetn6)
-<br />
-<br />
 🏻‍♂️ Trening narxlari va batafsil maʼlumot uchun quyidagi raqamlarga murojaat qiling:
 <br />
 <br />
-📞 +998555000900
-<br />
-<br />
-🏛 Toshkent shahrida boʻlib oʻtadigan oflayn treningimizda qatnashganlar nafaqat bilim, Big Data tomonidan beriladigan SERTIFIKAT bilan ham taqdirlanadi.</p>
+🏛 Toshkent shahrida boʻlib oʻtadigan oflayn treningimizda qatnashganlar nafaqat bilim,
+ Big Data tomonidan beriladigan SERTIFIKAT bilan ham taqdirlanadi.</p>
+ <br />
+ <a href="" className="single__center-text">📞 +998555000900</a>
+ <br />
+ <a href="" className="single__center-text">📝 Manzil:  (https://forms.gle/qkdmQpjrA6niSetn6)</a>
 <div className="single__timebox">
                   <span className="single__center-calendar single__times">
                       < img className="single__center-calendar-img single__times-img" src={Calendar} alt="" />15.03.2022</span>
