@@ -1,0 +1,54 @@
+.login{
+    &__wrapper{
+        margin-top: 100px;
+    }
+    &__form{
+        box-shadow: 0px 54px 100px rgba(25, 26, 72, 0.12);
+        border-radius: 4px;
+        padding: 30px 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    &__title{
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 54px;
+        color: #39387B;
+        text-shadow: 5px 5px 12px rgba(150, 150, 150, 1);
+    }
+    &__label{
+        font-size: 12px;
+        line-height: 18px;
+        color: #3C4866;
+        opacity: 0.5;
+        margin: 10px 0;
+    }
+    &__input{
+        width: 600px;
+        background: #FFFFFF;
+        box-shadow: 0px 54px 100px rgba(25, 26, 72, 0.12);
+        border: 1px solid rgba(53, 81, 153, 0.15);
+        border-radius: 7px;
+        padding: 15px;
+        &::placeholder{
+            text-align: center;
+            font-size: 16px;
+            line-height: 22px;
+            color: #3C4866;
+            opacity: 0.3;
+        }
+    }
+    &__btn{
+        background: #3586FF;
+border: 1px solid rgba(53, 81, 153, 0.2);
+border-radius: 6px;
+padding: 20px 80px;
+font-weight: 500;
+font-size: 18px;
+line-height: 22px;
+color: #FFFFFF;
+margin-top: 50px;
+    }
+}

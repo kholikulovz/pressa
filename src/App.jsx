@@ -9,6 +9,8 @@ import Footer from './Components/Footer/Footer';
 import { Route, Routes } from 'react-router-dom';
 import Single from './Pages/Single/Single';
 import About from './Pages/About/About';
+import Admin from './Pages/Admin/Admin';
+import Login from './Pages/Login/Login';
 
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
       <Route path='/single' element={<Single/>}></Route>
       <Route path='/about' element={<About/>}></Route>
       <Route path='/announce' element={<Announce/>}></Route>
+      <Route path='/admin' element={<Admin/>}></Route>
+      <Route path='/login' element={<Login/>}></Route>
     </Routes>
      <Footer />
    </>

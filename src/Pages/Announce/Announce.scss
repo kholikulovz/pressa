@@ -1,4 +1,54 @@
 .announce{
+    &__modal{
+        display: none;
+        z-index: 1;
+        position: fixed;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba($color: #000000, $alpha: 0.7);
+        overflow: hidden;
+        &--active{
+            display: block;
+        }
+        &-box{
+            z-index: 5;
+            margin: 200px auto 0;
+            height: 289px;
+            width: 476px;
+            border-radius: 4px;
+            background-color: white;
+            padding: 50px;
+        }
+        &-title{
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 36px;
+            color: #39387B;
+        }
+        &-text{
+            font-size: 14px;
+            line-height: 22px;
+            color: #3C4866;
+            opacity: 0.6;
+            margin: 10px 0 43px 0;
+        }
+        &-btn{
+            width: 376px;
+            // height: 46px;
+            background: #3586FF;
+            border: 1px solid rgba(53, 81, 153, 0.2);
+            box-sizing: border-box;
+            border-radius: 6px;
+            padding: 12px 140px;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 22px;
+            color: #FFFFFF;
+        }
+    }
     &__intro{
         margin: 50px 0 40px 0;
         &-navlink{
@@ -133,9 +183,14 @@
             line-height: 22px;
             color: #3C4866;
             opacity: 0.8;
+            z-index: 0;
             &::placeholder{
                 opacity: 0.4;
             }
+        }
+        &-teaxtarea{
+            // width: 735px;
+            height: 356px;
         }
         &-option{
             background: #39387B;
@@ -152,4 +207,5 @@
             }
         }
     }
+    
 }
