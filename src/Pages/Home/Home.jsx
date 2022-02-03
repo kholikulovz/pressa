@@ -20,11 +20,16 @@ function Home() {
     const [drop, setDrop] = useState(false);
     const [data, setData] = useState([]);
     const [sixArray, setsixArray] = useState();
+    const [categorylist, setCatecorylist] = useState();
+    const [currentCategory, setcurrentCategory] =useState(false);
+    const [ currentId, setCurrentId] = useState(0);
+    
     //states/ 
-    const [date, setDate] = useState('');
-    const [type, setType] = useState('');
-    const [category, setCategory] = useState('');
- 
+    const searchVal = useRef();
+    const type = useRef();
+    const time = useRef();
+    const catedory = useRef();
+    const subCategory = useRef();
     //refs
     const dropDown = useRef();
     let initial = 0;
@@ -49,6 +54,15 @@ function Home() {
         data.length != 0 ? initial = initial + 6 : initial = initial;
         initial > data.length ? initial = 0 : initial = initial
     }, [data]);
+    // categrori
+
+    useEffect(() => {
+        fetch('https://pressabackend.herokuapp.com/catigories')
+            .then(res => res.json())
+            .then(data => {
+                setCatecorylist(data)
+            })
+    })
 
     return (
         <main className="main__wrapper">
@@ -63,24 +77,26 @@ function Home() {
                             console.log(drop)
                         }}>Sohani tanlang</span><img style={{ 'transform': `rotate(${drop ? '180deg' : '0deg'})` }} src={arrow} alt="" className="form__arrow" />
                             <div ref={dropDown} className="dropdown">
-                                <ul className="dropdown__main">
-                                    <li className="dropdown__main-item">IT</li>
-                                    <li className="dropdown__main-item">Ta’lim</li>
-                                    <li className="dropdown__main-item">Biznes</li>
-                                    <li className="dropdown__main-item">Marketing</li>
-                                    <li className="dropdown__main-item">Iqtisodiyot</li>
-                                    <li className="dropdown__main-item">Dizayn</li>
-                                    <li className="dropdown__main-item">Sog’liqni saqlash</li>
-                                    <li className="dropdown__main-item">Qurilish</li>
+                                <ul className="dropdown__main"  >
+                                    {categorylist && categorylist.map((elem, i )=> {
+                                       return  <li key={i} id={elem.cat_id} className="dropdown__main-item" onClick={()=>{
+                                       if( dropDown.current.classList.contains('lengthen')&&currentId==elem.cat_id){
+                                           dropDown.current.classList.remove('lengthen');
+                                        }
+                                           else{dropDown.current.classList.add('lengthen');}
+                                        let found = categorylist.find(e=>e.cat_id==elem.cat_id)
+                                        setCurrentId(elem.cat_id)
+                                        setcurrentCategory(found)
+                                            
+                                       }}>{elem.cat_name}</li>
+                                    })}
+
                                 </ul>
                                 <ul className="dropdown__submenu">
-                                    <li className="dropdown__submenu-item" data-id='backend' >Backend</li>
-                                    <li className="dropdown__submenu-item" data-id='frontend'>Frontend</li>
-                                    <li className="dropdown__submenu-item" data-id='ux/ui'>Ux/ui Dizayn</li>
-                                    <li className="dropdown__submenu-item" data-id='grafik'>Grafik dizayn</li>
-                                    <li className="dropdown__submenu-item" data-id='mobile'>Mobile development</li>
-                                    <li className="dropdown__submenu-item" data-id='phyton'>Python</li>
-                                    <li className="dropdown__submenu-item" data-id='copywriter'>Kopirayter</li>
+                                    { currentCategory && currentCategory.subcat.map((e, i)=>{
+                                           return <li key={i} className="dropdown__submenu-item" data-id='backend'>{e}</li>
+                                    })
+                                    }
                                 </ul>
                             </div>
                         </div>
@@ -111,7 +127,7 @@ function Home() {
                         return (
                             <Cards
                                 key={i}
-                                postImg={e.post_img}
+                                postImg={`https://picsum.photos/200/300?random=2`}
                                 postName={e.post_thema}
                                 postAuthor={`${e.user_name} ${e.user_fname}`}
                                 type={e.type}
