@@ -20,6 +20,11 @@ function Home() {
     const [drop, setDrop] = useState(false);
     const [data, setData] = useState([]);
     const [sixArray, setsixArray] = useState();
+    //states/ 
+    const [date, setDate] = useState('');
+    const [type, setType] = useState('');
+    const [category, setCategory] = useState('');
+ 
     //refs
     const dropDown = useRef();
     let initial = 0;
@@ -30,10 +35,10 @@ function Home() {
     }, [drop]);
     //fetch
     useEffect(() => {
-        fetch('#')
+        fetch('https://pressabackend.herokuapp.com/cards')
             .then(res => res.json())
             .then(data => {
-                setData(data);
+                setsixArray(data)
             })
     }, [])
     // 6 element array
@@ -43,7 +48,7 @@ function Home() {
         }).filter(e => e))
         data.length != 0 ? initial = initial + 6 : initial = initial;
         initial > data.length ? initial = 0 : initial = initial
-    }, [data])
+    }, [data]);
 
     return (
         <main className="main__wrapper">
@@ -69,13 +74,13 @@ function Home() {
                                     <li className="dropdown__main-item">Qurilish</li>
                                 </ul>
                                 <ul className="dropdown__submenu">
-                                    <li className="dropdown__submenu-item">Backend</li>
-                                    <li className="dropdown__submenu-item">Frontend</li>
-                                    <li className="dropdown__submenu-item">Ux/ui Dizayn</li>
-                                    <li className="dropdown__submenu-item">Grafik dizayn</li>
-                                    <li className="dropdown__submenu-item">Mobile development</li>
-                                    <li className="dropdown__submenu-item">Python</li>
-                                    <li className="dropdown__submenu-item">Kopirayter</li>
+                                    <li className="dropdown__submenu-item" data-id='backend' >Backend</li>
+                                    <li className="dropdown__submenu-item" data-id='frontend'>Frontend</li>
+                                    <li className="dropdown__submenu-item" data-id='ux/ui'>Ux/ui Dizayn</li>
+                                    <li className="dropdown__submenu-item" data-id='grafik'>Grafik dizayn</li>
+                                    <li className="dropdown__submenu-item" data-id='mobile'>Mobile development</li>
+                                    <li className="dropdown__submenu-item" data-id='phyton'>Python</li>
+                                    <li className="dropdown__submenu-item" data-id='copywriter'>Kopirayter</li>
                                 </ul>
                             </div>
                         </div>
@@ -108,11 +113,11 @@ function Home() {
                                 key={i}
                                 postImg={e.post_img}
                                 postName={e.post_thema}
-                                postAuthor={`${e.user.user_name} ${e.user.user_fname}`}
+                                postAuthor={`${e.user_name} ${e.user_fname}`}
                                 type={e.type}
                                 date={e.start_data}
-                                userJob={e.user.user_job}
-                                id={i}
+                                userJob={e.user_job}
+                                id={e.post_id}
 
                             />
                         )
