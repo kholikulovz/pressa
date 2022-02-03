@@ -35,10 +35,10 @@ function Home() {
     }, [drop]);
     //fetch
     useEffect(() => {
-        fetch('#')
+        fetch('https://pressabackend.herokuapp.com/cards')
             .then(res => res.json())
             .then(data => {
-                setData(data);
+                setsixArray(data)
             })
     }, [])
     // 6 element array
@@ -49,7 +49,6 @@ function Home() {
         data.length != 0 ? initial = initial + 6 : initial = initial;
         initial > data.length ? initial = 0 : initial = initial
     }, [data]);
-
 
     return (
         <main className="main__wrapper">
@@ -114,11 +113,11 @@ function Home() {
                                 key={i}
                                 postImg={e.post_img}
                                 postName={e.post_thema}
-                                postAuthor={`${e.user.user_name} ${e.user.user_fname}`}
+                                postAuthor={`${e.user_name} ${e.user_fname}`}
                                 type={e.type}
                                 date={e.start_data}
-                                userJob={e.user.user_job}
-                                id={i}
+                                userJob={e.user_job}
+                                id={e.post_id}
 
                             />
                         )

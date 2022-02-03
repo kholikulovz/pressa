@@ -5,7 +5,7 @@ function Cards(props){
   const {postImg, postName, postAuthor, type, date, userJob, id} = props
 
     return(
-        <li className="card__item">
+        <li className="card__item" data-id={id}>
             <h2 className="card__title">{postName}</h2>
             <div className="card__header">
             <div className="card__info">
@@ -14,10 +14,10 @@ function Cards(props){
             </div>
             <div className="card__details">
                 <span className="card__date">{date}</span>
-                <span className="card__type">{type}</span>
+                <span className="card__type">{type==1?'online':'offline'}</span>
             </div>
             </div>
-            <img src={`https://picsum.photos/525/299?random=${id}`} alt="img" className="card__img" />
+            <img src={postImg} alt="img" className="card__img" />
         </li>
     )
 }
