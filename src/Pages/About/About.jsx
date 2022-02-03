@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 //import images
-import MuhammadAli from '../../Assets/Images/MuhammadAli.png'
+import AboutIntro from '../../Assets/Images/about-intro.png'
 import Calendar from '../../Assets/Images/calendar.svg'
 import Clock from '../../Assets/Images/clock.svg'
 import Eye from '../../Assets/Images/eye.svg'
@@ -15,10 +15,10 @@ function About() {
  <div className="about">
      <div className="container">
      <div className="about__link">
-        <Link className="about__navlink" to="/">
+        <Link className="about__navlink intro__link--inactive" to="/">
           Bosh sahifa |
         </Link>
-        <Link className="about__navlink" to="/">
+        <Link className="about__navlink intro__link--active" to="/">
           Loyiha haqida
         </Link>
       </div>
@@ -32,6 +32,18 @@ function About() {
                   <li className='about__left-item'>
                       <a className='about__left-question' href="#">SMS kodi nima?!</a>
                   </li>
+                  <li className='about__left-item'>
+                      <a className='about__left-question' href="#">Qanday e’lonlar mumkin emas?</a>
+                  </li>
+                  <li className='about__left-item'>
+                      <a className='about__left-question' href="#">Bu narsa bizga nima beradi?</a>
+                  </li>
+                  <li className='about__left-item'>
+                      <a className='about__left-question' href="#">Qanday e’lon bersam bo’ladi?</a>
+                  </li>
+                  <li className='about__left-item'>
+                      <a className='about__left-question' href="#">Elektron pochta orqali ro'yxatdan o'tishim mumkinmi?</a>
+                  </li>
               </ul>
               <h3 className="about__left-title">Ma'muriyat so'zlari</h3>
 <p className="about__left-text">Biz bilan, siz o’zingiz istagan seminar yoki brifinglarda ishtirok etishingiz mumkin bo’ladi,
@@ -42,7 +54,7 @@ yoki siz biznes egasi bo’lasgiz va odamlarga o’zingizning bilim va ko’nikm
               <p className="about__center-description">Biz bilan, siz o’zingiz istagan seminar yoki brifinglarda 
               ishtirok etishingiz mumkin bo’ladi, yoki siz biznes egasi bo’lasgiz va odamlarga o’zingizning bilim va
                ko’nikmalaringizni o’rgatishingiz mumkin bo’ladi</p>
-              <img className="about__center-img" src={MuhammadAli} alt="" />
+              <img className="about__center-img" src={AboutIntro} alt="" />
               <h5 className="about__center-theme">Shaxsiy rivojlanish insonlarga nima uchun kerak?</h5>
               <p className="about__center-text">Dizayn va kompozitsiyani baholashda o'qilishi mumkin bo'lgan
                matn diqqatni jamlashni qiyinlashtirishi uzoq vaqtdan beri aniqlangan.  chunki u ko'proq yoki
