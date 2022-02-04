@@ -1,8 +1,30 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import "./Announce.scss";
 import { Link } from "react-router-dom";
 
+
+
+
+
+
+
+
 function Announce() {
+  //states
+  const [type, setType] = useState('');
+  const [categ, setCateg] = useState('');
+  const [subcat, setSubcat] = useState('');
+  const [job, setJob] = useState();
+  //refs
+  const time = useRef();
+  const name = useRef();
+  const surname = useRef();
+  const link = useRef();
+  const tel = useRef();
+  const theme = useRef();
+  const short = useRef();
+  const desc = useRef();
+ 
   return (
     <div className="announce">
       <div className="container">
@@ -48,7 +70,7 @@ function Announce() {
               <li className="announce__form-box announce__form-box--small">
                 <label className="announce__form-label" htmlFor="">Ichki yo’nalishni belgilang</label>
                 <select className="announce__form-input" name="inner-route" id="">
-                  <option value="" disabled selected>
+                  <option value=""disabled selected>
                     Ichki yo'nalish
                   </option>
                 </select>

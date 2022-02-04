@@ -20,13 +20,10 @@ function Header() {
                     setModal(!modal)
                   }}>Loyiha haqida</NavLink></li>
                 <li className="header__item">
-                  <NavLink className='link link-page' to='/help'  onClick={()=>{
+                  <NavLink className='link link-page' to='/'  onClick={()=>{
                     setModal(!modal)
                   }}>Yordam</NavLink></li>
-                <li className="header__item">
-                  <NavLink className='link link-page' to='/enter' onClick={()=>{
-                    setModal(!modal)
-                  }}>Kirish</NavLink></li>
+          
 
               </ul>
             </div>
