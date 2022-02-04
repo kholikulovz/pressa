@@ -21,17 +21,17 @@ function Home() {
     const [data, setData] = useState([]);
     const [sixArray, setsixArray] = useState();
     const [categorylist, setCatecorylist] = useState();
-    const [currentCategory, setcurrentCategory] =useState(false);
-    const [ currentId, setCurrentId] = useState(0);
-    
+    const [currentCategory, setcurrentCategory] = useState(false);
+    const [currentId, setCurrentId] = useState(0);
+    const [time, setTime] = useState();
+    const [type, setType] = useState();
+    const [subcat, setSubcat]=useState()
+
     //states/ 
     const searchVal = useRef();
-    const type = useRef();
-    const time = useRef();
-    const catedory = useRef();
-    const subCategory = useRef();
     //refs
     const dropDown = useRef();
+    const submit = useRef();
     let initial = 0;
 
     //dropdown
@@ -43,7 +43,7 @@ function Home() {
         fetch('https://pressabackend.herokuapp.com/cards')
             .then(res => res.json())
             .then(data => {
-                setsixArray(data)
+                setData(data)
             })
     }, [])
     // 6 element array
@@ -64,60 +64,69 @@ function Home() {
             })
     })
 
+   
+    console.log(type)
     return (
         <main className="main__wrapper">
             <div className="header__background"></div>
             <div className="container">
                 <div className="home__wrapper">
                     <h1 className='home__title'>Biz bilan to’g’ri yo’lni tanlash osonroq</h1>
-                    <form className="form">
-                        <input type='date' name='date' className="form__date" data-date-inline-picker="true" />
+                    <form className="form" onSubmit={(e)=>{
+                        e.preventDefault();
+                        console.log({
+                            type, 
+                            search: searchVal.current.value, 
+                            subcat
+                        })
+                    }}>
+                        <input type='date' name='date' ref={time} className="form__date" data-date-inline-picker="true" />
                         <div className="form__select" ><span onClick={() => {
                             setDrop(!drop);
-                            console.log(drop)
-                        }}>Sohani tanlang</span><img style={{ 'transform': `rotate(${drop ? '180deg' : '0deg'})` }} src={arrow} alt="" className="form__arrow" />
+                        }}>{subcat?subcat:'Sohani tanlang'} </span><img style={{ 'transform': `rotate(${drop ? '180deg' : '0deg'})` }} src={arrow} alt="" className="form__arrow" />
                             <div ref={dropDown} className="dropdown">
                                 <ul className="dropdown__main"  >
-                                    {categorylist && categorylist.map((elem, i )=> {
-                                       return  <li key={i} id={elem.cat_id} className="dropdown__main-item" onClick={()=>{
-                                       if( dropDown.current.classList.contains('lengthen')&&currentId==elem.cat_id){
-                                           dropDown.current.classList.remove('lengthen');
-                                        }
-                                           else{dropDown.current.classList.add('lengthen');}
-                                        let found = categorylist.find(e=>e.cat_id==elem.cat_id)
-                                        setCurrentId(elem.cat_id)
-                                        setcurrentCategory(found)
-                                            
-                                       }}>{elem.cat_name}</li>
+                                    {categorylist && categorylist.map((elem, i) => {
+                                        return <li key={i} id={elem.cat_id} className="dropdown__main-item" onClick={() => {
+                                            if (dropDown.current.classList.contains('lengthen') && currentId == elem.cat_id) {
+                                                dropDown.current.classList.remove('lengthen');
+                                            }
+                                            else { dropDown.current.classList.add('lengthen'); }
+                                            let found = categorylist.find(e => e.cat_id == elem.cat_id)
+                                            setCurrentId(elem.cat_id)
+                                            setcurrentCategory(found)
+
+                                        }}>{elem.cat_name}</li>
                                     })}
 
                                 </ul>
                                 <ul className="dropdown__submenu">
-                                    { currentCategory && currentCategory.subcat.map((e, i)=>{
-                                           return <li key={i} className="dropdown__submenu-item" data-id='backend'>{e}</li>
+                                    {currentCategory && currentCategory.subcat.map((e, i) => {
+                                        return <li key={i} className="dropdown__submenu-item" data-id='backend' onClick={()=>{
+                                            setSubcat(e);
+                                            dropDown.current.classList.remove('lengthen')
+                                        }}>{e}</li>
                                     })
                                     }
                                 </ul>
                             </div>
                         </div>
-                        <label className='form__label' htmlFor="online" style={{ 'color': state == 'online' ? '#3585FF' : '#3C4866' }} onClick={(e) => {
+                        <label className='form__label' htmlFor="online" style={{ 'color': state == 'online' ? '#3585FF' : '#3C4866' }} onClick={() => {
                             setState('online')
-                        }}><input name='method' type="radio" id='online' onClick={(e) => {
-                            setState(e.target.id)
-                        }} />Online</label>
-                        <label className='form__label' htmlFor="offline" style={{ 'color': state == 'offline' ? '#3585FF' : '#3C4866' }} onClick={(e) => {
-                            setState('offline')
-                        }}><input name='method' type="radio" id='offline' onClick={(e) => {
-                            setState(e.target.id)
-                        }} />Offline</label>
+                            setType(1);
+                        }}><input name='method' type="radio" id='online'/>Online</label>
+                        <label className='form__label' htmlFor="offline" style={{ 'color': state == 'offline' ? '#3585FF' : '#3C4866' }} onClick={() => {
+                            setState('offline');
+                            setType(2)
+                        }}><input name='method' type="radio" id='offline'/>Offline</label>
                         <div className="search__container">
                             <div className="search__wrapper">
                                 <button className="search__icon">
                                     <img src={search} alt="#" />
                                 </button>
-                                <input type="text" className='search__field' placeholder='Ism kiritish' />
+                                <input ref={searchVal} type="text" className='search__field' placeholder='Ism kiritish' />
                             </div>
-                            <button className='form__submit' type='submit'>Natijani ko'rsatish</button>
+                            <button className='form__submit' ref={submit} type='submit'>Natijani ko'rsatish</button>
                         </div>
                     </form>
                 </div>
@@ -127,7 +136,7 @@ function Home() {
                         return (
                             <Cards
                                 key={i}
-                                postImg={`https://picsum.photos/200/300?random=2`}
+                                postImg={e.post_img}
                                 postName={e.post_thema}
                                 postAuthor={`${e.user_name} ${e.user_fname}`}
                                 type={e.type}
