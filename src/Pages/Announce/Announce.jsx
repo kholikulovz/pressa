@@ -1,12 +1,15 @@
 import React, { useRef, useState } from "react";
 import "./Announce.scss";
 import { Link } from "react-router-dom";
-
-
-
-
-
-
+// import { DatePicker } from "rsuite";
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import TimePicker from '@mui/lab/TimePicker';
+import DateTimePicker from '@mui/lab/DateTimePicker';
+import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
+import MobileDatePicker from '@mui/lab/MobileDatePicker';
 
 
 function Announce() {
@@ -15,6 +18,8 @@ function Announce() {
   const [categ, setCateg] = useState('');
   const [subcat, setSubcat] = useState('');
   const [job, setJob] = useState();
+  const [line, setLine] = useState(2); // otvorayabti
+  
   //refs
   const time = useRef();
   const name = useRef();
@@ -24,7 +29,31 @@ function Announce() {
   const theme = useRef();
   const short = useRef();
   const desc = useRef();
- 
+
+  const [value, setValue] = useState(new Date('2022-01-01T00:00:00'));
+// const [state, setState] = useState({
+//     profileImg:
+//       "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+//   })
+//   state = {
+//     profileImg:
+//       "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+//   };
+//  const imageHandler = e => {
+//     const reader = new FileReader();
+//     reader.onload = () => {
+//       if (reader.readyState === 2) {
+//         this.setState({ profileImg: reader.result });
+//       }
+//     };
+//     reader.readAsDataURL(e.target.files[0]);
+//   };
+//   const { profileImg } = this.state;
+
+  const handleChange = (newValue) => {
+    setValue(newValue);
+  };
+
   return (
     <div className="announce">
       <div className="container">
@@ -56,8 +85,38 @@ function Announce() {
           <form action="" className="announce__form">
             <ul className="announce__form-menu">
               <li className="announce__form-box announce__form-box--small">
-                <label className="announce__form-label" htmlFor="">O’tkaziladigan sanani kiriting</label>
-                <input className="announce__form-input" type="datetime-local" />
+                {/* <label className="announce__form-label" htmlFor="">O’tkaziladigan sanani kiriting</label> */}
+                {/* <input className="announce__form-input" type="datetime-local" /> */}
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <Stack spacing={3}>
+        {/* <DesktopDatePicker
+          label="Date desktop"
+          inputFormat="MM/dd/yyyy"
+          value={value}
+          onChange={handleChange}
+          renderInput={(params) => <TextField {...params} />}
+        /> */}
+        {/* <MobileDatePicker
+          label="Date mobile"
+          inputFormat="MM/dd/yyyy"
+          value={value}
+          onChange={handleChange}
+          renderInput={(params) => <TextField {...params} />}
+        />
+        <TimePicker
+          label="Time"
+          value={value}
+          onChange={handleChange}
+          renderInput={(params) => <TextField {...params} />}
+        /> */}
+        <DateTimePicker className="announce__form-input"
+          // label="Date&Time picker"
+          value={value}
+          onChange={handleChange}
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </Stack>
+    </LocalizationProvider>
               </li>
               <li className="announce__form-box announce__form-box--small">
                 <label className="announce__form-label" htmlFor="">Yo’nalishni belgilang</label>
@@ -78,8 +137,12 @@ function Announce() {
               <li className="announce__form-box announce__form-box--small">
                 <label className="announce__form-label" htmlFor="">Tadbir turi</label>
                 <div className="announce__criteria-buttons">
-                  <button className="announce__criteria-btn">Online</button>
-                  <button className="announce__criteria-btn">Offline</button>
+                  <button className={`announce__criteria-btn ${line==1?'announce__criteria-btn--active':''}`} onClick={()=>{
+                                setLine(1)
+                            }}>Online</button>
+                  <button className={`announce__criteria-btn ${line==2?'announce__criteria-btn--active':''}`} onClick={()=>{
+                                setLine(2)
+                            }}>Offline</button>
                 </div>
               </li>
               <li className="announce__form-box announce__form-box--middle">
@@ -137,6 +200,28 @@ function Announce() {
               <button className="announce__post-btn announce__post-btn--white" id="reject-btn">Bekor qilish</button>
               <button className="announce__post-btn announce__post-btn--blue" id="send-btn">Yuborish</button>
             </div>
+<input type="file" />
+{/* <div className="page">
+        <div className="my-container">
+          <h1 className="heading">Add your Image</h1>
+          <div className="img-holder">
+            <img src={profileImg} alt="" id="img" className="img" />
+          </div>
+          <input
+            type="file"
+            accept="image/*"
+            name="image-upload"
+            id="input"
+            onChange={this.imageHandler}
+          />
+          <div className="label">
+            <label className="image-upload" htmlFor="input">
+              <i className="material-icons">add_photo_alternate</i>
+              Choose your Photo
+            </label>
+          </div>
+        </div>
+      </div> */}
           </form>
         </div>
       </div>

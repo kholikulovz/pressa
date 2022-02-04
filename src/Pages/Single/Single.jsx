@@ -2,7 +2,13 @@ import React from "react";
 import './Single.scss'
 import { Link } from "react-router-dom";
 // import ShareBtn from 'react-share-button';
-
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 //import images
 import MuhammadAli from '../../Assets/Images/MuhammadAli.png'
@@ -38,6 +44,8 @@ function Single() {
           </div>
           <div className="single__center">
               <h2 className="single__center-title">Shaxsiy rivojlanish 100 yillik strategiya</h2>
+              <span className="single__center-share"><img  src={Share} alt="share" />
+              <p className="single__center-share-text">Ulashish</p></span>
               <p className="single__center-description">Shaxsiy rivojlanish sirlarini bilishni istaganlar  biz sizlarni kutib qolamiz...</p>
               <img className="single__center-img" src={MuhammadAli} alt="" />
               <h5 className="single__center-theme">Shaxsiy rivojlanish insonlarga nima uchun kerak?</h5>
@@ -70,9 +78,26 @@ function Single() {
           </div>
           <div className="single__right">
                   <span className="single__right-share single__times">
-                      <img className="single__right-share-img single__times-img" src={Share} alt="" />Ulashish</span>
+                      <img className="single__right-share-img single__times-img" src={Share} alt="" /><p className="single__right-text">Ulashish</p></span>
           </div>
       </div>
+      <Swiper
+      modules={[Navigation, Pagination, Scrollbar, A11y]}
+      spaceBetween={50}
+      slidesPerView={3}
+      // navigation
+      // pagination={{ clickable: true }}
+      // scrollbar={{ draggable: true }}
+      onSwiper={(swiper) => console.log(swiper)}
+      onSlideChange={() => console.log('slide change')}
+    >
+      <SwiperSlide>Slide 1</SwiperSlide>
+      <SwiperSlide>Slide 2</SwiperSlide>
+      <SwiperSlide>Slide 3</SwiperSlide>
+      <SwiperSlide>Slide 4</SwiperSlide>
+      {/* <button>prev</button>
+      <button>next</button> */}
+    </Swiper>
      </div>
     </div>
   );
