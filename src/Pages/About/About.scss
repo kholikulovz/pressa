@@ -27,6 +27,7 @@
     }
     &__left{
         width: 300px;
+        max-width: 100%;
         border-right: 1px solid rgba(51, 51, 51, 0.2);
         padding-right: 70px;
         &-title{
@@ -54,9 +55,11 @@
     }
     &__center{
         width: 716px;
+        max-width: 100%;
         margin-right: 150px;
         &-title{
             width: 490px;
+            max-width: 100%;
             font-weight: 800;
             font-size: 36px;
             line-height: 50px;
@@ -101,3 +104,89 @@
     }
     
 }
+
+@media screen and (max-width:1250px) {
+.about{
+    &__left{
+        padding-right: 10px;
+    }
+    &__center{
+        margin: 0 50px;
+    }
+}
+}
+@media screen and (max-width:1024px) {
+.about{
+    &__left{
+        border-right: none;
+        &-question{
+            font-size: 12px;
+        padding-right: 8px;
+
+        }
+    }
+    &__center{
+        margin: 0 30px;
+        &-description{
+            font-size: 16px;
+            line-height: 20px;
+            margin: 18px 0 25px 0;
+        }
+        &-text{
+            font-size: 16px;
+            line-height: 25px;
+        }
+    }
+}
+}
+@media screen and (max-width: 768px) {
+.about{
+    &__wrapper{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+    &__center{
+        &-title{
+            font-size: 30px;
+            line-height: 42px;
+        }
+    }
+    &__left{
+        width: 700px;
+        max-width: 100%;
+        margin-top: 30px;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        padding-right: 0;
+
+        &--left{
+            width: 228px;
+            border-left: 1px solid rgba(51, 51, 51, 0.2);
+            padding-left: 30px;
+
+        }
+        &--right{
+            width: 300px;
+            // padding-right: 40px;
+        }
+    }
+}
+}
+@media screen and (max-width:425px) {
+    .about{
+        &__center{
+            &-description{
+                font-size: 14px;
+                line-height: 18px;
+                margin: 15px 0 20px 0;
+            }
+            &-text{
+                font-size: 14px;
+                line-height: 23px;
+            }
+        }
+    }
+    }

@@ -24,7 +24,8 @@ function About() {
       </div>
       <div className="about__wrapper">
           <div className="about__left">
-              <h3 className="about__left-title">Savollaringiz bormi?</h3>
+             <div className="about__left--left">
+             <h3 className="about__left-title">Savollaringiz bormi?</h3>
               <ul className='about__left-list'>
                   <li className='about__left-item'>
                       <a className='about__left-question' href="#">SMS tasdiqlash kodi kelmayabdi!</a>
@@ -45,9 +46,12 @@ function About() {
                       <a className='about__left-question' href="#">Elektron pochta orqali ro'yxatdan o'tishim mumkinmi?</a>
                   </li>
               </ul>
-              <h3 className="about__left-title">Ma'muriyat so'zlari</h3>
+             </div>
+             <div className="about__left--right">
+             <h3 className="about__left-title">Ma'muriyat so'zlari</h3>
 <p className="about__left-text">Biz bilan, siz o’zingiz istagan seminar yoki brifinglarda ishtirok etishingiz mumkin bo’ladi,
 yoki siz biznes egasi bo’lasgiz va odamlarga o’zingizning bilim va ko’nikmalaringizni o’rgatishingiz mumkin bo’ladi</p>
+             </div>
           </div>
           <div className="about__center">
               <h2 className="about__center-title">Loyiha haqida</h2>

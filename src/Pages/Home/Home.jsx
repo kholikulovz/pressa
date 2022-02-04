@@ -81,7 +81,7 @@ function Home() {
                         })
                     }}>
                         <input type='date' name='date' ref={time} className="form__date" data-date-inline-picker="true" />
-                        <div className="form__select" ><span onClick={() => {
+                        <div className="form__select" ><span className='form__select-spes' onClick={() => {
                             setDrop(!drop);
                         }}>{subcat?subcat:'Sohani tanlang'} </span><img style={{ 'transform': `rotate(${drop ? '180deg' : '0deg'})` }} src={arrow} alt="" className="form__arrow" />
                             <div ref={dropDown} className="dropdown">
@@ -111,6 +111,7 @@ function Home() {
                                 </ul>
                             </div>
                         </div>
+                        <div className='form__linebox'>
                         <label className='form__label' htmlFor="online" style={{ 'color': state == 'online' ? '#3585FF' : '#3C4866' }} onClick={() => {
                             setState('online')
                             setType(1);
@@ -119,6 +120,7 @@ function Home() {
                             setState('offline');
                             setType(2)
                         }}><input name='method' type="radio" id='offline'/>Offline</label>
+                        </div>
                         <div className="search__container">
                             <div className="search__wrapper">
                                 <button className="search__icon">

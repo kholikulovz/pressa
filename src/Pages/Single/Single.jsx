@@ -26,7 +26,7 @@ function Single() {
       </div>
       <div className="single__wrapper">
           <div className="single__left">
-              <h3 className="single__left-title">Ochiq logo marafon taqdimotiga marhamat</h3>
+              <h3 className="single__left-title">Shaxsiy rivojlanish 100 yillik strategiya</h3>
               <h4 className="single__left-author">Muhammad Ali Eshonqulov</h4>
               <span className="single__left-profession">Speaker</span>
               <div className="single__timebox">
@@ -37,7 +37,7 @@ function Single() {
               </div>
           </div>
           <div className="single__center">
-              <h2 className="single__center-title">Ochiq logo marafon taqdimotiga marhamat</h2>
+              <h2 className="single__center-title">Shaxsiy rivojlanish 100 yillik strategiya</h2>
               <p className="single__center-description">Shaxsiy rivojlanish sirlarini bilishni istaganlar  biz sizlarni kutib qolamiz...</p>
               <img className="single__center-img" src={MuhammadAli} alt="" />
               <h5 className="single__center-theme">Shaxsiy rivojlanish insonlarga nima uchun kerak?</h5>
