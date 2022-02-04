@@ -18,14 +18,17 @@ function Admin() {
                 "token": token,
                 "is_accept":currentPage
             } 
-            
-
         })
         .then(res=>res.json())
         .then(data=>{
             setData(data)
         })
     }, [currentPage, refresh])
+
+
+    // useEffect(()=>{
+        
+    // }, [refresh])
 //column__btn--active
 
     return (<div className="admin">
@@ -80,9 +83,16 @@ function Admin() {
                                         body:JSON.stringify({
                                             post_id:e.post_id
                                         })
-                                    });
-                                    setRefresh(!refresh);
-                                    console.log(e.post_id);
+                                    }).then(e=>{
+                                         setRefresh(!refresh);
+                                    })                                   
+
+
+                                    // let index = data.findIndex(elem=>elem.post_id==e.post_id);
+                                    // console.log(index);
+                                    // data.splice(index, 1);
+                                    // setData(data);
+                                    // console.log(data);
                                 }}>Tasdiqlash</button>
                                 <button className='column__card-btn column__card-btn--white' onClick={()=>{
                                     fetch(`https://pressabackend.herokuapp.com/poster`, {
@@ -94,9 +104,12 @@ function Admin() {
                                         body:JSON.stringify({
                                             post_id:e.post_id
                                         })
-                                    });
-                                    setRefresh(!refresh);
-                                    console.log(e.post_id);
+                                    }).then(e=>{
+                                        setRefresh(!refresh);
+
+                                    })
+
+                    
                                 }}>Bekor qilish</button>
                             </div>
                         </li>
