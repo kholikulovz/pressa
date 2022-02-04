@@ -20,18 +20,20 @@ function Home() {
     const [drop, setDrop] = useState(false);
     const [data, setData] = useState([]);
     const [sixArray, setsixArray] = useState();
-    const [categorylist, setCatecorylist] = useState();
+    const [categorylist, setCatecorylist] = useState(false);
     const [currentCategory, setcurrentCategory] = useState(false);
     const [currentId, setCurrentId] = useState(0);
-    const [time, setTime] = useState();
-    const [type, setType] = useState();
-    const [subcat, setSubcat]=useState()
+    const [type, setType] = useState(false);
+    const [subcat, setSubcat]=useState(false);
+    const [send, setSend] = useState(false);
 
     //states/ 
     const searchVal = useRef();
+    const time = useRef();
     //refs
     const dropDown = useRef();
     const submit = useRef();
+    
     let initial = 0;
 
     //dropdown
@@ -40,12 +42,12 @@ function Home() {
     }, [drop]);
     //fetch
     useEffect(() => {
-        fetch('https://pressabackend.herokuapp.com/cards')
+        fetch(`https://pressabackend.herokuapp.com/cards?type=${type?type:3}&data=${time.current.value}&search=${searchVal.current.value}&catigor=${subcat?subcat:''}`)
             .then(res => res.json())
             .then(data => {
                 setData(data)
             })
-    }, [])
+    }, [send])
     // 6 element array
     useEffect(() => {
         setsixArray(data.map((e, i) => {
@@ -57,15 +59,16 @@ function Home() {
     // categrori
 
     useEffect(() => {
-        fetch('https://pressabackend.herokuapp.com/catigories')
+        fetch(`https://pressabackend.herokuapp.com/catigories`)
             .then(res => res.json())
             .then(data => {
-                setCatecorylist(data)
+                setCatecorylist(data);
             })
+          
     })
+    
 
    
-    console.log(type)
     return (
         <main className="main__wrapper">
             <div className="header__background"></div>
@@ -73,11 +76,13 @@ function Home() {
                 <div className="home__wrapper">
                     <h1 className='home__title'>Biz bilan to’g’ri yo’lni tanlash osonroq</h1>
                     <form className="form" onSubmit={(e)=>{
+                        setSend(!send)
                         e.preventDefault();
                         console.log({
-                            type, 
+                            type:type?type:1, 
                             search: searchVal.current.value, 
-                            subcat
+                            subcat:subcat?subcat:'', 
+                            time:time.current.value
                         })
                     }}>
                         <input type='date' name='date' ref={time} className="form__date" data-date-inline-picker="true" />
@@ -95,7 +100,7 @@ function Home() {
                                             let found = categorylist.find(e => e.cat_id == elem.cat_id)
                                             setCurrentId(elem.cat_id)
                                             setcurrentCategory(found)
-
+                                             
                                         }}>{elem.cat_name}</li>
                                     })}
 
@@ -130,9 +135,9 @@ function Home() {
                         </div>
                     </form>
                 </div>
-                <ul className="card__list">
+                <ul className="card__list" style={{'gridTemplateRows':data.length<=2?'99%':data.length<4?"49% 49%":'32% 32% 32%'}}>
 
-                    {sixArray && sixArray.map((e, i) => {
+                    {data && data.map((e, i) => {
                         return (
                             <Cards
                                 key={i}

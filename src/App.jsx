@@ -10,8 +10,7 @@ import { Route, Routes } from 'react-router-dom';
 import Single from './Pages/Single/Single';
 import About from './Pages/About/About';
 import Admin from './Pages/Admin/Admin';
-import Login from './Pages/Login/Login';
-
+import Login from './Pages/Login/Login'
 
 function App() {
   return (
