@@ -126,6 +126,16 @@
 }
 @media screen and (max-width:425px){
     .header{
+        &__item{
+            margin-right: 10px;
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+}
+@media screen and (max-width:425px){
+    .header{
         .mobile__modal{
             position:fixed;
             display: none;
