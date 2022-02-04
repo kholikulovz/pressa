@@ -6,6 +6,13 @@ function Announce() {
   return (
     <div className="announce">
       <div className="container">
+        <div className="announce__modal" >
+          <div className="announce__modal-box">
+            <h4 className="announce__modal-title">E'lon tekshirishga yuborildi</h4>
+            <p className="announce__modal-text">Sizning e‘loningiz 10 daqiqa ichida saytga joylanadi.</p>
+            <a className="announce__modal-btn" href="/">Bosh sahifa</a>
+          </div>
+        </div>
         <div className="announce__intro">
           <div className="announce__intro-link">
             <Link className="announce__intro-navlink" to="/">
@@ -99,7 +106,15 @@ function Announce() {
                 <label className="announce__form-label" htmlFor="">Qisqa izoh kiriting</label>
                 <input className="announce__form-input" type="text" placeholder="Izoh" />
               </li>
+              <li className="announce__form-box announce__form-box--big">
+                <label className="announce__form-label" htmlFor="">Batafsil ma'lumot</label>
+                <textarea className="announce__form-input announce__form-teaxtarea" type="text" placeholder="Batafsil ma'lumot" />
+              </li>
             </ul>
+            <div className="announce__post-buttons">
+              <button className="announce__post-btn announce__post-btn--white" id="reject-btn">Bekor qilish</button>
+              <button className="announce__post-btn announce__post-btn--blue" id="send-btn">Yuborish</button>
+            </div>
           </form>
         </div>
       </div>

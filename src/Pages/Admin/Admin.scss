@@ -1,0 +1,108 @@
+.admin{
+    &__wrapper{
+        height: 1580px;
+        width: 1280px;
+        margin-top: 80px;
+        display: flex;
+        background: #FFFFFF;
+        box-shadow: 0px 54px 100px rgba(25, 26, 72, 0.12);
+        border-radius: 4px;
+    }
+}
+.left{
+    &__column{
+        padding: 60px 40px;
+        border-right: 1px solid rgba($color: #39387B, $alpha: 0.2) ;
+        &-circle{
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            background: #F4F4F4;
+            margin-bottom: 40px;
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+.column{
+    padding: 60px 55px 100px 55px;
+    &__buttons{
+        display: flex;
+        align-items: center;
+        margin-bottom: 108px;
+        &-item{
+            margin-right: 40px;
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+    &__btn{
+        padding: 15px 73px;
+        background: #FFFFFF;
+        border: 1px solid rgba(53, 81, 153, 0.2);
+        border-radius: 6px;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        color: #355199;
+        &--active{
+            background: #3586FF;
+            color: #FFFFFF;
+        }
+    }
+    &__card{
+        width: 1030px;
+        background: #FFFFFF;
+        box-shadow: 0px 54px 100px rgba(25, 26, 72, 0.12);
+        border-radius: 4px;
+        padding: 20px 30px 40px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &-left{
+            width: 625px;
+        }
+        &-title{
+            font-weight: 800;
+            font-size: 36px;
+            line-height: 50px;
+            color: #39387B;
+            margin-bottom: 20px;
+        }
+        &-span{
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 27px;
+            text-transform: uppercase;
+            color: #39387B;
+            margin-right: 30px;
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+        &-right{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        &-btn{
+            border: 1px solid rgba(53, 81, 153, 0.2);
+            border-radius: 6px;
+            padding: 20px 60px;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 22px;
+            &--blue{
+                background: #3586FF;
+                color: #FFFFFF;
+                margin-bottom: 20px;
+            }
+            &--white{
+                background: #FFFFFF;
+                color: #355199;
+            }
+        }
+    }
+}
