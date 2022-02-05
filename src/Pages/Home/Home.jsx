@@ -62,13 +62,13 @@ function Home() {
     // categrori
 
     useEffect(() => {
-        fetch(`https://doubleressabaza.herokuapp.com/cards/`)
-            .then(res => res.json())
-            .then(data => {
-                setCatecorylist(data);
-            })
-          
-    }, [])
+        fetch(`https://doubleressabaza.herokuapp.com/catigories`)
+          .then(res => res.json())
+          .then(data => {
+            setCatecorylist(data);
+          })
+    
+      }, [])
     
 
    
@@ -88,10 +88,9 @@ function Home() {
                             time:time.current.value
                         })
                     }}>
-                        <input type='date' name='date' ref={time} className="form__date" data-date-inline-picker="true" 
-                        value=""/>
+                        
              
-
+                        <input type="date" className="form__date" ref={time}/>
                         <div className="form__select" ><span className='form__select-spes' onClick={() => {
                             setDrop(!drop);
                         }}>{subcat?subcat:'Sohani tanlang'} </span><img style={{ 'transform': `rotate(${drop ? '180deg' : '0deg'})` }} src={arrow} alt="" className="form__arrow" />
