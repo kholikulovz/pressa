@@ -54,11 +54,7 @@ function Home() {
                 console.log(data)
             })
     }, [send])
-    useEffect(()=>{
-        fetch(`https://doubleressabaza.herokuapp.com/cards`)
-        .then(res=>res.json())
-        .then(data=>setData(data))
-    }, [])
+
     // 6 element array
     useEffect(() => {
         setsixArray(data.map((e, i) => {
@@ -96,17 +92,9 @@ function Home() {
                             time:time.current.value
                         })
                     }}>
-                        {/* <input type='date' name='date' ref={time} className="form__date" data-date-inline-picker="true" /> */}
-                        <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <Stack spacing={3}>
-        <DateTimePicker className="form__date" ref={time}
-          // label="Date&Time picker"
-          value={value}
-          onChange={handleChange}
-          renderInput={(params) => <TextField {...params} />}
-        />
-      </Stack>
-    </LocalizationProvider>
+                        <input type='date' name='date' ref={time} className="form__date" data-date-inline-picker="true" />
+             
+
                         <div className="form__select" ><span className='form__select-spes' onClick={() => {
                             setDrop(!drop);
                         }}>{subcat?subcat:'Sohani tanlang'} </span><img style={{ 'transform': `rotate(${drop ? '180deg' : '0deg'})` }} src={arrow} alt="" className="form__arrow" />
