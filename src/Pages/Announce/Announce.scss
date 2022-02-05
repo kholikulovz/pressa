@@ -88,7 +88,7 @@
         }
     }
     &__criteria{
-        padding-right: 400px;
+        // padding-right: 400px;
         &-buttons{
             width: 226px;
             height: 52px;
@@ -121,6 +121,7 @@
             align-items: center;
             justify-content: space-between;
             margin-bottom: 50px;
+            margin-top: 30px;
         }
         &-btn{
             width: 240px;
@@ -144,18 +145,21 @@
         }
     }
     &__form{
-// &--last{
-//     display: flex;
-// }
         &-sides{
             display: flex;
+            // flex-wrap: wrap;
+            // width: 90%;
             align-items: center;
-            justify-content: space-between;
+            justify-content: space-evenly;
         }
         &-menu{
             display: flex;
             flex-wrap: wrap;
             align-items: center;
+            
+            &--withpic{
+                width: 50%;
+            }
         }
         &-box{
             display: flex;
@@ -163,12 +167,15 @@
             margin:0 50px 40px 0;
             &--small{
                 width: 226px;
+                // max-width: 100%;
             }
             &--middle{
                 width: 475px;
+                // max-width: 100%;
             }
             &--big{
                 width: 735px;
+                max-width: 100%;
             }
         }
         &-label{
@@ -181,7 +188,7 @@
         &-input{
             border: 1px solid rgba(53, 81, 153, 0.15);
             border-radius: 7px;
-            padding: 25px;
+            padding: 15px;
             // padding-right: 50px;
             font-size: 16px;
             line-height: 22px;
@@ -210,7 +217,7 @@
                 color: black;
             }
         }
-
+        
     }
     
 }
@@ -222,6 +229,7 @@
     position: absolute;
 }
 .picture{
+    width: 40%;
     &__box{
         position: relative;
         width: 298px;
@@ -247,37 +255,66 @@
         color: #FFFFFF;
     }
     &__bottom{
+        width: 298px;
         background: #F4F4F4;
-border-radius: 10px;
-padding: 0 25px 35px 25px;
+        border-radius: 10px;
+        padding: 0 25px 35px 25px;
     }
     &__text{
         font-size: 16px;
-line-height: 28px;
-opacity: 0.6;
-margin: 15px 0 18px 0;
+        line-height: 28px;
+        opacity: 0.6;
+        margin: 15px 0 18px 0;
     }
     &__preview{
         width: 248px;
         height: 190px;
         max-width: 248px;
         max-height: 190px;
-        object-fit: contain;
+        // object-fit: contain;
     }
 }
-#dvPreview
-{
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);
-    // min-height: 400px;
-    // min-width: 400px;
-    width: 248px;
-    height: 190px;
-    max-width: 248px;
-    max-height: 190px;
-    object-fit: contain;width: 248px;
-    height: 190px;
-    max-width: 248px;
-    max-height: 190px;
-    object-fit: contain;
-    // display: none;
+@media screen and (max-width:768px) {
+    .announce{
+        &__cards{
+            width: 100%;
+            padding: 50px 60px 20px 50px;
+            box-shadow: 0px 54px 100px rgba(25, 26, 72, 0.12);
+            border-radius: 4px;
+            margin-bottom: 40px;
+        }
+        &__form{
+            &-menu{
+                justify-content: space-evenly;
+                &--withpic{
+                    width: 100%;
+                }
+            }
+            &-sides{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: space-evenly;
+            }
+        }
+    }
 }
+@media screen and (max-width:640px) {
+    .announce{
+        &__post{
+            &-buttons{
+                width: 600px;
+                max-width: 100%;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                margin-bottom: 50px;
+                margin-top: 30px;
+            }
+            &-btn{
+                width: 600px;
+                max-width: 90%;
+                margin-bottom: 15px;
+            }
+    }
+}}

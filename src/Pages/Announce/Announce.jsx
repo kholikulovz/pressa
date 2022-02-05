@@ -31,6 +31,8 @@ function Announce() {
   const handleChange = (newValue) => {
     setValue(newValue);
   };
+  const reader = new FileReader()
+  let uploaded_image = '';
 
   return (
     <div className="announce">
@@ -139,9 +141,9 @@ function Announce() {
         </div>
         <div className="announce__post announce__cards">
           <h3 className="announce__cards-title">Post</h3>
-          <form action="" className="announce__form announce__form-sides">
-            <div className="announce__form--left">
-            <ul className="announce__form-menu">
+          <form action="" className="announce__form">
+            <div className="announce__form-sides">
+            <ul className="announce__form-menu announce__form-menu--withpic">
               <li className="announce__form-box announce__form-box--big">
                 <label className="announce__form-label" htmlFor="">Mavzu nomini kiriting</label>
                 <input className="announce__form-input" type="text" placeholder="Mavzu" />
@@ -155,23 +157,33 @@ function Announce() {
                 <textarea className="announce__form-input announce__form-teaxtarea" type="text" placeholder="Batafsil ma'lumot" />
               </li>
             </ul>
-            <div className="announce__post-buttons">
-              <button className="announce__post-btn announce__post-btn--white" id="reject-btn">Bekor qilish</button>
-              <button className="announce__post-btn announce__post-btn--blue" id="send-btn">Yuborish</button>
-            </div>
-            </div>
             <div className="picture">
             <div className="picture__box">
-        <input type="file" id="fileupload"  className="pic"/>
+        <input type="file" className="pic" id="image__input" 
+        // accept="image/png, image/jpg" onChange={ () =>{
+        //   reader.addEventListener('onLoad', () =>{
+        //        uploaded_image = reader.result;
+        //        document.querySelector('#display__image').style.backgroundImage = `url(${uploaded_image})`
+        //    })
+        //    reader.readAsDataURL(this.files[0]);
+        // }
+           
+        // }
+        />
           <span className="picture__span">
             <img className="picture__img" src={Download} alt="" />
             Mavzu rasmini yuklang</span>
             </div>
             <div className="picture__bottom">
             <p className="picture__text">620x480 px o’lchamdagi rasm yuklash tavsiya etiladi.</p>
-            <div className="picture__preview" id="dvPreview"></div>
+            <div className="picture__preview" id="display__image"></div>
             </div>
-            
+    
+            </div>
+            </div>
+            <div className="announce__post-buttons">
+              <button className="announce__post-btn announce__post-btn--white" id="reject-btn">Bekor qilish</button>
+              <button className="announce__post-btn announce__post-btn--blue" id="send-btn">Yuborish</button>
             </div>
           </form>
         </div>
