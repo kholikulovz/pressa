@@ -9,6 +9,7 @@ import DateTimePicker from '@mui/lab/DateTimePicker';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import MobileDatePicker from '@mui/lab/MobileDatePicker';
 import arrow from '../../Assets/Images/arrow.svg';
+import Download from '../../Assets/Images/download.svg'
 
 
 function Announce() {
@@ -218,15 +219,7 @@ function Announce() {
                         }}>{e}</li>
                       })}
                     </ul>
-
                   </div>
-
-
-
-
-
-
-
                 </li>
                 <li className="announce__form-box announce__form-box--small">
                   <label className="announce__form-label" htmlFor="">Tadbir turi</label>
@@ -272,6 +265,7 @@ function Announce() {
           <section className="announce__post announce__cards">
             <h3 className="announce__cards-title">Post</h3>
             <section action="" className="announce__form">
+              <div className="announce__form-sides">
               <ul className="announce__form-menu">
                 <li className="announce__form-box announce__form-box--big">
                   <label className="announce__form-label" htmlFor="">Mavzu nomini kiriting</label>
@@ -285,33 +279,26 @@ function Announce() {
                   <label className="announce__form-label" htmlFor="">Batafsil ma'lumot</label>
                   <textarea className="announce__form-input announce__form-teaxtarea" ref={desc} type="text" placeholder="Batafsil ma'lumot" />
                 </li>
-                <li className="announce__form-box announce__form-box--big">  <input type="file" ref={file} /></li>
+                <li className="announce__form-box announce__form-box--big"></li> 
               </ul>
+              <div className="picture">
+                  <div className="picture__box">
+                    <input className="pic" type="file" ref={file} />
+                    <span className="picture__span">
+                      <img className="picture__img" src={Download} alt="" />
+                      Mavzu rasmini yuklang</span>
+                  </div>
+                      <div className="picture__bottom">
+                        <p className="picture__text">620x480 px o’lchamdagi rasm yuklash tavsiya etiladi.</p>
+                        <div className="picture__preview"></div>
+                      </div>
+                  </div> 
+              </div>
               <div className="announce__post-buttons">
                 <button className="announce__post-btn announce__post-btn--white" id="reject-btn">Bekor qilish</button>
                 <button className="announce__post-btn announce__post-btn--blue" id="send-btn">Yuborish</button>
               </div>
-              {/* <div className="page">
-        <div className="my-container">
-          <h1 className="heading">Add your Image</h1>
-          <div className="img-holder">
-            <img src={profileImg} alt="" id="img" className="img" />
-          </div>
-          <input
-            type="file"
-            accept="image/*"
-            name="image-upload"
-            id="input"
-            onChange={this.imageHandler}
-          />
-          <div className="label">
-            <label className="image-upload" htmlFor="input">
-              <i className="material-icons">add_photo_alternate</i>
-              Choose your Photo
-            </label>
-          </div>
-        </div>
-      </div> */}
+           
             </section>
           </section>
         </form>
