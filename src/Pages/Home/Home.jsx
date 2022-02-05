@@ -51,8 +51,14 @@ function Home() {
             .then(res => res.json())
             .then(data => {
                 setData(data)
+                console.log(data)
             })
     }, [send])
+    useEffect(()=>{
+        fetch(`https://doubleressabaza.herokuapp.com/cards`)
+        .then(res=>res.json())
+        .then(data=>setData(data))
+    }, [])
     // 6 element array
     useEffect(() => {
         setsixArray(data.map((e, i) => {
@@ -70,7 +76,7 @@ function Home() {
                 setCatecorylist(data);
             })
           
-    })
+    }, [])
     
 
    

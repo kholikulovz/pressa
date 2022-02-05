@@ -23,7 +23,7 @@ function Announce() {
   const [chosen, setChosen] = useState(null);
   const [active, setActive] = useState(false);
   const [value, setValue] = useState(new Date('2022-01-01T00:00:00'));
-  const [ time, setTime] = useState();
+  const [time, setTime] = useState('');
 
 
 
@@ -149,19 +149,11 @@ function Announce() {
 
 
 
-                      <input ref={time} type="datetime-local" onChange={(e)=>{
-                        console.log(e.target.value)
-                      }}/>
-
+           
                       <DateTimePicker className="announce__form-input"
                         value={value}
                         onChange={handleChange}
                         renderInput={(params) => {
-                        
-                        
-                        
-                        
-                      
                             let date = new Date(params.inputProps.value)
                             let mnth = ("0" + (date.getMonth() + 1)).slice(-2)
                             let day = ("0" + date.getDate()).slice(-2);
@@ -171,10 +163,11 @@ function Announce() {
                           
                             let sana = [date.getFullYear(), mnth, day].join("-");
                             let vaqat = [hours, minut].join(":");
-                            console.log( sana +' '+vaqat)
-                            setTime(sana +' '+vaqat)
+                            console.log( sana +' '+vaqat);
+                            let log = sana +' '+vaqat
+                            setTime(log.toString())
 
-                          console.log(params.inputProps.value);
+                          // console.log(params.inputProps.value);
                           return <TextField {...params} />
                         }}
                       />
