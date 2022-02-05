@@ -96,7 +96,7 @@ function Home() {
                         <input type="date" className="form__date" ref={time} onChange={()=>{
                                   let newTime = time.current.value
                                   newTime = newTime.split('-');
-                                 setStandart(`${newTime[0]}-${newTime[2]}-${newTime[1]}`)
+                                 setStandart(`${newTime[1]}-${newTime[2]}-${newTime[0]}`)
                         }}/>
                         <div className="form__select" ><span className='form__select-spes' onClick={() => {
                             setDrop(!drop);
