@@ -1,12 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Announce.scss";
 import { Link } from "react-router-dom";
-// import { DatePicker } from "rsuite";
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import TimePicker from '@mui/lab/TimePicker';
 import DateTimePicker from '@mui/lab/DateTimePicker';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import MobileDatePicker from '@mui/lab/MobileDatePicker';
@@ -51,10 +49,13 @@ function Announce() {
       })
 
   }, [])
+  const [value, setValue] = useState(new Date('2022-01-01T00:00:00'));
 
   const handleChange = (newValue) => {
     setValue(newValue);
   };
+  const reader = new FileReader()
+  let uploaded_image = '';
 
 
   useEffect(() => {
