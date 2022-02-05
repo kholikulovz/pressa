@@ -6,8 +6,6 @@ import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateTimePicker from '@mui/lab/DateTimePicker';
-import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
-import MobileDatePicker from '@mui/lab/MobileDatePicker';
 import arrow from '../../Assets/Images/arrow.svg';
 import Download from '../../Assets/Images/download.svg'
 
@@ -158,6 +156,7 @@ function Announce() {
            
                       <DateTimePicker className="announce__form-input"
                         value={value}
+                        label='Sana va vaqt'
                         onChange={handleChange}
                         renderInput={(params) => {
                             let date = new Date(params.inputProps.value)

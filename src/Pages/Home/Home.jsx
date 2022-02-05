@@ -92,7 +92,8 @@ function Home() {
                             time:time.current.value
                         })
                     }}>
-                        <input type='date' name='date' ref={time} className="form__date" data-date-inline-picker="true" />
+                        <input type='date' name='date' ref={time} className="form__date" data-date-inline-picker="true" 
+                        value="2022-01-01"/>
              
 
                         <div className="form__select" ><span className='form__select-spes' onClick={() => {
