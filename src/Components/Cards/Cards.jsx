@@ -1,4 +1,5 @@
 import './Cards.scss';  
+import notFound from '../../Assets/Images/not-found.png'
 
 
 function Cards(props){
@@ -17,7 +18,7 @@ function Cards(props){
                 <span className="card__type">{type==1?'online':'offline'}</span>
             </div>
             </div>
-            <img src={`https://doubleressabaza.herokuapp.com${postImg}`} alt="img" className="card__img" />
+            <img src={postImg?`https://doubleressabaza.herokuapp.com${postImg}`:notFound} alt="img" className="card__img" />
         </li>
     )
 }

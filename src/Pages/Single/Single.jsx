@@ -9,8 +9,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import Cards from "../../Components/Crads/Cards";
-
+import Cards from "../../Components/Cards/Cards";
 //import images
 import MuhammadAli from '../../Assets/Images/MuhammadAli.png'
 import Calendar from '../../Assets/Images/calendar.svg'

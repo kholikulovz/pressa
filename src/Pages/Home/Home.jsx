@@ -2,7 +2,6 @@ import search from '../../Assets/svg/search.svg';
 import './Home.scss';
 import { useRef, useState, useEffect } from 'react';
 import arrow from '../../Assets/Images/arrow.svg';
-import Cards from '../../Components/Crads/Cards';
 import auditory from '../../Assets/Images/auditory.png'
 import faster from '../../Assets/Images/faster.png'
 import { NavLink } from 'react-router-dom';
@@ -11,6 +10,7 @@ import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateTimePicker from '@mui/lab/DateTimePicker';
+import Cards from '../../Components/Cards/Cards';
 
 
 
@@ -143,7 +143,7 @@ function Home() {
                         </div>
                     </form>
                 </div>
-                <ul className="card__list" style={{'gridTemplateRows':data.length<=2?'99%':data.length<4?"49% 49%":'32% 32% 32%'}}>
+                <ul className="card__list" style={{'gridTemplateRows':data.length<=2?'99%':data.length<=4?"49% 49%":'32% 32% 32%'}}>
 
                     {data && data.map((e, i) => {
                         return (

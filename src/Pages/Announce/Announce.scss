@@ -97,7 +97,10 @@
             border: 1px solid rgba(53, 81, 153, 0.2);
             box-sizing: border-box;
             border-radius: 6px;
-            padding: 12px 140px;
+            padding: 12px 100px;
+            text-align: center;
+            display: block;
+            margin: auto;
             font-weight: 500;
             font-size: 16px;
             line-height: 22px;
@@ -191,11 +194,27 @@
                 background: #FFFFFF;
                 border: 1px solid rgba(53, 81, 153, 0.6);
                 color: #355199;
+                transition: .3s;
+                &:hover{
+                    box-shadow:  0  0 5px #000;
+                    transition: .3s;
+                }
+                &:active{
+                    box-shadow: 0 0 10px #000;
+                }
             }
             &--blue{
                 background: #3586FF;
                 border: 1px solid rgba(53, 81, 153, 0.2);
                 color: #FFFFFF;
+                transition: .3s;
+                &:hover{
+                    box-shadow:  0  0 5px #3586FF;
+                    transition: .3s;
+                }
+                &:active{
+                    box-shadow: 0 0 10px #3586FF;
+                }
             }
         }
     }

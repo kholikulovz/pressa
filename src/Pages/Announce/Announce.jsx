@@ -67,11 +67,11 @@ function Announce() {
   return (
     <div className="announce">
       <div className="container">
-        <div className="announce__modal" >
+        <div className="announce__modal" ref={modal} >
           <div className="announce__modal-box">
             <h4 className="announce__modal-title">E'lon tekshirishga yuborildi</h4>
             <p className="announce__modal-text">Sizning e‘loningiz 10 daqiqa ichida saytga joylanadi.</p>
-            <a className="announce__modal-btn" href="/">Bosh sahifa</a> 
+            <Link to='/' className="announce__modal-btn">Bsoh sahifa</Link>
           </div>
         </div>
         <div className="announce__intro">
@@ -115,7 +115,8 @@ function Announce() {
             })
             .then(res=> res.json())
             .then(data=>{
-              if(data){
+              console.log(data)
+              if( !(data.status==400||data.satus==500)){
                   modal.current.classList.add('announce__modal--active')
               }
             })
@@ -150,7 +151,6 @@ function Announce() {
                   {/* <input className="announce__form-input" type="datetime-local" /> */}
                   <LocalizationProvider dateAdapter={AdapterDateFns}>
                     <Stack spacing={3}>
-
 
 
            
@@ -261,7 +261,7 @@ function Announce() {
                 </li>
                 <li className="announce__form-box announce__form-box--small">
                   <label className="announce__form-label" htmlFor="">Kasb</label>
-                  <input className="announce__form-input" ref={job} type="tel" placeholder="job.." />
+                  <input className="announce__form-input" ref={job} type="text" placeholder="job.." />
                 </li>
               </ul>
             </section>
@@ -301,7 +301,7 @@ function Announce() {
                   </div> 
               </div>
               <div className="announce__post-buttons">
-                <button className="announce__post-btn announce__post-btn--white" id="reject-btn">Bekor qilish</button>
+                <button type="reset" className="announce__post-btn announce__post-btn--white" id="reject-btn">Bekor qilish</button>
                 <button className="announce__post-btn announce__post-btn--blue" id="send-btn">Yuborish</button>
               </div>
            
