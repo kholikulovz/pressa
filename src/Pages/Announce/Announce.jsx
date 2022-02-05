@@ -83,7 +83,7 @@ function Announce() {
               E'lon berish
             </Link>
           </div>
-          <h1 className="announce__intro-titl">E'lon berish</h1>
+          <h1 className="announce__intro-title">E'lon berish</h1>
           <p className="announce__intro-text">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit.
             Perspiciatis, qui.
@@ -146,7 +146,7 @@ function Announce() {
             <section className="announce__form" >
               <ul className="announce__form-menu">
                 <li className="announce__form-box announce__form-box--small">
-                  {/* <label className="announce__form-label" htmlFor="">O’tkaziladigan sanani kiriting</label> */}
+                  <label className="announce__form-label" htmlFor="">O’tkaziladigan sanani kiriting</label>
                   {/* <input className="announce__form-input" type="datetime-local" /> */}
                   <LocalizationProvider dateAdapter={AdapterDateFns}>
                     <Stack spacing={3}>
@@ -156,7 +156,7 @@ function Announce() {
            
                       <DateTimePicker className="announce__form-input"
                         value={value}
-                        label='Sana va vaqt'
+                        // label='Sana va vaqt'
                         onChange={handleChange}
                         renderInput={(params) => {
                             let date = new Date(params.inputProps.value)
@@ -294,7 +294,9 @@ function Announce() {
                   </div>
                       <div className="picture__bottom">
                         <p className="picture__text">620x480 px o’lchamdagi rasm yuklash tavsiya etiladi.</p>
-                        <div className="picture__preview"></div>
+                        <div className="picture__preview">
+                          {/* <img src={file} alt="" /> */}
+                        </div>
                       </div>
                   </div> 
               </div>
