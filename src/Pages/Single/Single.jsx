@@ -9,6 +9,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import Cards from "../../Components/Crads/Cards";
 
 //import images
 import MuhammadAli from '../../Assets/Images/MuhammadAli.png'
@@ -22,13 +23,22 @@ import Share from '../../Assets/Images/share-2.svg';
 function Single() {
    const {id} = useParams();
    console.log(id);
-   const [data, setData] = useState('')
+   const [data, setData] = useState({});
+   const [fullData, setFullData] = useState([]);
 
    useEffect(()=>{
       fetch(`https://doubleressabaza.herokuapp.com/cards/${id}`)
       .then(res=>res.json())
       .then(data=>setData(...data))
    }, [id])
+
+   useEffect(()=>{
+    fetch(`https://doubleressabaza.herokuapp.com/cards`)
+    .then(res=>res.json())
+    .then(data=>{
+        setFullData(data)
+    })
+   }, [])
 
 
    console.log(data)
@@ -107,10 +117,21 @@ function Single() {
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}
     >
-      <SwiperSlide>Slide 1</SwiperSlide>
-      <SwiperSlide>Slide 2</SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
+       {fullData.map((e, i)=>{
+          return <SwiperSlide key={i}><Link to ={`/single${e.post_id}`} >
+             <Cards
+                                
+                                postImg={e.post_img}
+                                postName={e.post_thema}
+                                postAuthor={`${e.user_name} ${e.user_fname}`}
+                                type={e.type}
+                                date={e.start_data}
+                                userJob={e.user_job}
+                                id={e.post_id}
+                            />
+            </Link></SwiperSlide>
+       })}
+      
       {/* <button>prev</button>
       <button>next</button> */}
     </Swiper>
