@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import './Login.scss';
 import { Navigate } from 'react-router';
+
 function Login() {
   const userName = useRef();
   const password = useRef();
@@ -26,7 +28,7 @@ function Login() {
                 console.log(data)
                 if (data.token) {
                   window.localStorage.setItem('token', data.token);
-                  <Navigate to='/admin'/>
+                 window.location.href = 'https://pressakhzra.netlify.app/login'
 
                 }
               })

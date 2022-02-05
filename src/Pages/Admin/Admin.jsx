@@ -6,7 +6,9 @@ function Admin() {
     const token = window.localStorage.getItem('token') || '';
     const [currentPage, setCurrentPage] = useState(1);
     const [refresh, setRefresh] = useState(false);
-    
+     if(!window.localStorage.getItem('token')){
+                 window.location.href = 'https://pressakhzra.netlify.app/login'
+     }
 
 
 
