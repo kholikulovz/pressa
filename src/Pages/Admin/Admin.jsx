@@ -70,7 +70,7 @@ function Admin() {
                                 <h2 className='column__card-title'>{e.post_thema}</h2>
                                 <span className='column__card-author column__card-span'>{`${e.user_name} ${e.user_fname}`}</span>
                                 <span className='column__card-date column__card-span'>{e.start_data}</span>
-                                <span className='column__card-phone column__card-span'>{e.user_phone}</span>
+                                <span className='column__card-phone column__card-span'>+{e.user_phone}</span>
                             </div>
                             <div className="column__card-right">
                                 <button className='column__card-btn column__card-btn--blue' id={e.post_id} onClick={()=>{
