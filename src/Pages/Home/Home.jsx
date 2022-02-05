@@ -27,11 +27,7 @@ function Home() {
     const [subcat, setSubcat]=useState(false);
     const [send, setSend] = useState(false);
 
-    const [value, setValue] = useState(new Date('2022-01-01T00:00:00'));
-
-    const handleChange = (newValue) => {
-      setValue(newValue);
-    };
+  
     //states/ 
     const searchVal = useRef();
     const time = useRef();
@@ -93,7 +89,7 @@ function Home() {
                         })
                     }}>
                         <input type='date' name='date' ref={time} className="form__date" data-date-inline-picker="true" 
-                        value="2022-01-01"/>
+                        value=""/>
              
 
                         <div className="form__select" ><span className='form__select-spes' onClick={() => {
