@@ -1,7 +1,7 @@
 @import '../../ScssTemplates/templates.scss';
 .main{
     &__wrapper{
-        margin-top: -100px;
+        // margin-top: -100px;
         .header__background{
             height: 774px;
             background: linear-gradient(55.94deg, #C2CBE2 10.89%, rgba(216, 218, 223, 1) 79.84%); ;
@@ -59,6 +59,7 @@
     }
     #online, #offline{
         margin-right: 5px;
+        margin-left: 20px;
     }
     &__select{
         @include buttonLight;
@@ -80,7 +81,7 @@
 }
 .search{
     &__wrapper{
-        width: 459px;
+        width: 359px;
         height: 52px;
         max-width: 100%;
         background-color: #F9F9F9;
@@ -90,6 +91,7 @@
         border-radius: 6px;
         display: flex;
         align-items: center;
+        margin-right: 10px;
         &:focus-visible{
             outline: 2px solid #3C4866 ;
         }
@@ -307,4 +309,7 @@
     }
 
 }
+}
+.css-1lwbda4-MuiStack-root{
+    border: transparent;
 }
