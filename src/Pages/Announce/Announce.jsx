@@ -41,6 +41,7 @@ function Announce() {
   const file = useRef();
   const dropDown = useRef();
   const subDrop = useRef();
+  const modal = useRef();
 
   useEffect(() => {
     fetch(`https://doubleressabaza.herokuapp.com/catigories`)
@@ -72,7 +73,7 @@ function Announce() {
           <div className="announce__modal-box">
             <h4 className="announce__modal-title">E'lon tekshirishga yuborildi</h4>
             <p className="announce__modal-text">Sizning e‘loningiz 10 daqiqa ichida saytga joylanadi.</p>
-            <a className="announce__modal-btn" href="/">Bosh sahifa</a>
+            <a className="announce__modal-btn" href="/">Bosh sahifa</a> 
           </div>
         </div>
         <div className="announce__intro">
@@ -80,11 +81,11 @@ function Announce() {
             <Link className="announce__intro-navlink" to="/">
               Bosh sahifa |
             </Link>
-            <Link className="announce__intro-navlink" to="/add">
+            <Link className="announce__intro-navlink" to="/announce">
               E'lon berish
             </Link>
           </div>
-          <h1 className="announce__intro-title">E'lon berish</h1>
+          <h1 className="announce__intro-titl">E'lon berish</h1>
           <p className="announce__intro-text">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit.
             Perspiciatis, qui.
@@ -115,7 +116,11 @@ function Announce() {
               body:formdata
             })
             .then(res=> res.json())
-            .then(data=>console.log(data))
+            .then(data=>{
+              if(data){
+                  modal.current.classList.add('announce__modal--active')
+              }
+            })
             
             //  console.log({
             //    time:time, 
