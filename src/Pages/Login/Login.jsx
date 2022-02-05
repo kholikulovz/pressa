@@ -28,7 +28,7 @@ function Login() {
                 console.log(data)
                 if (data.token) {
                   window.localStorage.setItem('token', data.token);
-                 window.location.href = 'https://pressakhzra.netlify.app/login'
+                 window.location.href = 'https://pressakhzra.netlify.app/admin'
 
                 }
               })
