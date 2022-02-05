@@ -38,12 +38,6 @@ function Single() {
         setFullData(data)
     })
    }, [])
-
-
-   console.log(data)
-  
-
-
   return (
     <div className="single">
      <div className="container">
@@ -109,14 +103,14 @@ function Single() {
       <Swiper
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={50}
-      slidesPerView={window.screen.width<744?1:2 }
+      slidesPerView={window.screen.width>744?2:1}
       // navigation
       // pagination={{ clickable: true }}
       // scrollbar={{ draggable: true }}
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}
     >
-       {fullData.map((e, i)=>{
+       {fullData&&fullData.map((e, i)=>{
           return <SwiperSlide key={i}><Link to ={`/single/${e.post_id}`} >
              <Cards
                                 
