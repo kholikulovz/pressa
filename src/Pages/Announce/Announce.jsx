@@ -252,12 +252,12 @@ function Announce() {
                   <input className="announce__form-input" ref={surname} type="text" placeholder="Familiya" />
                 </li>
                 <li className="announce__form-box announce__form-box--small">
-                  <label className="announce__form-label" htmlFor="">Telefon raqamingiz</label>
-                  <input className="announce__form-input" ref={tel} type="tel" placeholder="+998" />
+                  <label className="announce__form-label" htmlFor="">Telefon raqamingiz(99893234..)</label>
+                  <input className="announce__form-input" ref={tel} type="tel" placeholder="+998.." />
                 </li>
                 <li className="announce__form-box announce__form-box--small">
                   <label className="announce__form-label" htmlFor="">Kasb</label>
-                  <input className="announce__form-input" ref={job} type="tel" placeholder="+998" />
+                  <input className="announce__form-input" ref={job} type="tel" placeholder="job.." />
                 </li>
               </ul>
             </section>
