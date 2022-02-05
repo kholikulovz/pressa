@@ -58,8 +58,10 @@
         
     }
     #online, #offline{
-        margin-right: 5px;
+        margin-right: 8px;
         margin-left: 20px;
+        width: 16px;
+        height: 16px;
     }
     &__select{
         @include buttonLight;
