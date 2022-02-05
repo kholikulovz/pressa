@@ -118,7 +118,7 @@ function Single() {
       onSlideChange={() => console.log('slide change')}
     >
        {fullData.map((e, i)=>{
-          return <SwiperSlide key={i}><Link to ={`/single${e.post_id}`} >
+          return <SwiperSlide key={i}><Link to ={`/single/${e.post_id}`} >
              <Cards
                                 
                                 postImg={e.post_img}
