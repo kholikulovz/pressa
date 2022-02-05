@@ -83,7 +83,7 @@ function Announce() {
               E'lon berish
             </Link>
           </div>
-          <h1 className="announce__intro-titl">E'lon berish</h1>
+          <h1 className="announce__intro-title">E'lon berish</h1>
           <p className="announce__intro-text">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit.
             Perspiciatis, qui.
@@ -294,7 +294,9 @@ function Announce() {
                   </div>
                       <div className="picture__bottom">
                         <p className="picture__text">620x480 px o’lchamdagi rasm yuklash tavsiya etiladi.</p>
-                        <div className="picture__preview"></div>
+                        <div className="picture__preview">
+                          {/* <img src={file} alt="" /> */}
+                        </div>
                       </div>
                   </div> 
               </div>
