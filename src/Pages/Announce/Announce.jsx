@@ -49,13 +49,12 @@ function Announce() {
       })
 
   }, [])
-  const [value, setValue] = useState(new Date('2022-01-01T00:00:00'));
+
 
   const handleChange = (newValue) => {
     setValue(newValue);
   };
-  const reader = new FileReader()
-  let uploaded_image = '';
+
 
 
   useEffect(() => {
@@ -150,9 +149,9 @@ function Announce() {
 
 
 
-                      {/* <input ref={time} type="datetime-local" onChange={(e)=>{
+                      <input ref={time} type="datetime-local" onChange={(e)=>{
                         console.log(e.target.value)
-                      }}/> */}
+                      }}/>
 
                       <DateTimePicker className="announce__form-input"
                         value={value}
