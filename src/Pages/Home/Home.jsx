@@ -6,11 +6,11 @@ import Cards from '../../Components/Crads/Cards';
 import auditory from '../../Assets/Images/auditory.png'
 import faster from '../../Assets/Images/faster.png'
 import { NavLink } from 'react-router-dom';
-
-
-
-
-
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import DateTimePicker from '@mui/lab/DateTimePicker';
 
 
 
@@ -27,6 +27,11 @@ function Home() {
     const [subcat, setSubcat]=useState(false);
     const [send, setSend] = useState(false);
 
+    const [value, setValue] = useState(new Date('2022-01-01T00:00:00'));
+
+    const handleChange = (newValue) => {
+      setValue(newValue);
+    };
     //states/ 
     const searchVal = useRef();
     const time = useRef();
@@ -36,7 +41,7 @@ function Home() {
     
     let initial = 0;
 
-    //dropdown
+    // dropdown
     useEffect(() => {
         drop ? dropDown.current.classList.add('active') : dropDown.current.classList.remove('active')
     }, [drop]);
@@ -85,7 +90,17 @@ function Home() {
                             time:time.current.value
                         })
                     }}>
-                        <input type='date' name='date' ref={time} className="form__date" data-date-inline-picker="true" />
+                        {/* <input type='date' name='date' ref={time} className="form__date" data-date-inline-picker="true" /> */}
+                        <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <Stack spacing={3}>
+        <DateTimePicker className="form__date" ref={time}
+          // label="Date&Time picker"
+          value={value}
+          onChange={handleChange}
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </Stack>
+    </LocalizationProvider>
                         <div className="form__select" ><span className='form__select-spes' onClick={() => {
                             setDrop(!drop);
                         }}>{subcat?subcat:'Sohani tanlang'} </span><img style={{ 'transform': `rotate(${drop ? '180deg' : '0deg'})` }} src={arrow} alt="" className="form__arrow" />

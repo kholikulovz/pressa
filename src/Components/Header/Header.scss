@@ -2,16 +2,23 @@
 
 .header{
     position: fixed;
+    // display: none;
     top: 0;
     left: 0;
     right: 0;
     font-style: normal;
     z-index: 5;
-    background-color:  #ffffff !important;
-    box-shadow: 0 2px 24px 0 rgb(0 0 0 / 15%);
+    background-color: transparent;
     color: #3C4866;
     height: 100px;
     padding: 30px 0;
+    transition: 0.5s;
+    &--active{
+        display: block;
+    background-color:  #ffffff !important;
+    box-shadow: 0 2px 24px 0 rgb(0 0 0 / 15%);
+
+    }
     &__wrapper{
         display: flex;
         align-items: center;

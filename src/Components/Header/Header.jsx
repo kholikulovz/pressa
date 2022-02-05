@@ -1,12 +1,24 @@
 import React, { useState } from 'react';
 import './Header.scss';
 import { NavLink, Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 
 function Header() {
     const [modal, setModal] = useState(false);
+    let [scrollNav, setScrollNav] = useState('')
+
+    
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 20) {
+            setScrollNav("header--active");
+        } else {
+            setScrollNav('')
+        }
+      });
   return (
-    <header className="header">
+    <header className={`header ${scrollNav}`} onScroll={(e) =>{
+      
+    }}>
       <div className="container">
         <div className="header__wrapper">
           <div className="header__logo"><Link className='link header__logo' to='/'>Pressa</Link></div>
