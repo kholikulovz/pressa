@@ -26,6 +26,7 @@ function Home() {
     const [type, setType] = useState(false);
     const [subcat, setSubcat]=useState(false);
     const [send, setSend] = useState(false);
+    const [standard, setStandart]= useState('')
 
   
     //states/ 
@@ -36,6 +37,8 @@ function Home() {
     const submit = useRef();
     
     let initial = 0;
+    //data
+
 
     // dropdown
     useEffect(() => {
@@ -43,7 +46,7 @@ function Home() {
     }, [drop]);
     // fetch
     useEffect(() => {
-        fetch(`https://doubleressabaza.herokuapp.com/cards/?type=${type?type:3}&data=${time.current.value}&search=${searchVal.current.value}&catigor=${subcat?subcat:''}`)
+        fetch(`https://doubleressabaza.herokuapp.com/cards/?type=${type?type:3}&data=${standard}&search=${searchVal.current.value}&catigor=${subcat?subcat:''}`)
             .then(res => res.json())
             .then(data => {
                 setData(data)
@@ -85,12 +88,16 @@ function Home() {
                             type:type?type:1, 
                             search: searchVal.current.value, 
                             subcat:subcat?subcat:'', 
-                            time:time.current.value
+                            time:standard
                         })
                     }}>
                         
              
-                        <input type="date" className="form__date" ref={time}/>
+                        <input type="date" className="form__date" ref={time} onChange={()=>{
+                                  let newTime = time.current.value
+                                  newTime = newTime.split('-');
+                                 setStandart(`${newTime[0]}-${newTime[2]}-${newTime[1]}`)
+                        }}/>
                         <div className="form__select" ><span className='form__select-spes' onClick={() => {
                             setDrop(!drop);
                         }}>{subcat?subcat:'Sohani tanlang'} </span><img style={{ 'transform': `rotate(${drop ? '180deg' : '0deg'})` }} src={arrow} alt="" className="form__arrow" />

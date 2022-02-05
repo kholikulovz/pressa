@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './Single.scss'
-import { Link, useParams } from "react-router-dom";
+import { Link,NavLink, useParams } from "react-router-dom";
 // import ShareBtn from 'react-share-button';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -24,6 +24,7 @@ function Single() {
    console.log(id);
    const [data, setData] = useState({});
    const [fullData, setFullData] = useState([]);
+   const [click, setClick] = useState(false)
 
    useEffect(()=>{
       fetch(`https://doubleressabaza.herokuapp.com/cards/${id}`)
@@ -38,6 +39,9 @@ function Single() {
         setFullData(data)
     })
    }, [])
+   useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [click])
   return (
     <div className="single">
      <div className="container">
@@ -68,29 +72,16 @@ function Single() {
               <p className="single__center-description">{data.post_comment}</p>
               <img className="single__center-img" src={`https://doubleressabaza.herokuapp.com${data.post_img}`} alt="" />
               <h5 className="single__center-theme">{data.post_thema}</h5>
-              <p className="single__center-text">🙋🏻‍♂️ {data.post_more}
-<br />
-<br />
-📆 Barchasini 20-dekabr kuni Big Data Biznes akademiyasida Muhammadali Eshonqulovning “ Shaxsiy Rivojlanish: 100yillik Strategiya” mavzusida boʻlib oʻtadigan treningida bilib olishingiz mumkin.
-<br />
-<br />
-📌 Imkoniyatni boy bermang, oʻz kelajagingiz uchun muhim qarorni qabul qilishning ayni vaqti! 
-<br />
-<br />
-🏻‍♂️ Trening narxlari va batafsil maʼlumot uchun quyidagi raqamlarga murojaat qiling:
-<br />
-<br />
-🏛 Toshkent shahrida boʻlib oʻtadigan oflayn treningimizda qatnashganlar nafaqat bilim,
- Big Data tomonidan beriladigan SERTIFIKAT bilan ham taqdirlanadi.</p>
+              <p className="single__center-text">{data.post_more}</p>
  <br />
  <a href="" className="single__center-text">📞 +{data.user_phone}</a>
  <br />
+ <br/>
  <a href="" className="single__center-text">📝 Manzil:  ({data.meeting_place})</a>
 <div className="single__timebox">
                   <span className="single__center-calendar single__times">
                       < img className="single__center-calendar-img single__times-img" src={Calendar} alt="" />{data.start_data}</span>
-                  <span className="single__center-clock single__times">
-                      <img className="single__center-clock-img single__times-img" src={Clock} alt="" />11:00</span>
+                  
                   <span className="single__center-view single__times">
                       <img className="single__center-view-img single__times-img" src={Eye} alt="" />{data.post_views}</span>
               </div>
@@ -111,7 +102,7 @@ function Single() {
       onSlideChange={() => console.log('slide change')}
     >
        {fullData&&fullData.map((e, i)=>{
-          return <SwiperSlide key={i}><Link to ={`/single/${e.post_id}`} >
+          return <SwiperSlide  key={i}><NavLink to ={`/single/${e.post_id}`}  >
              <Cards
                                 
                                 postImg={e.post_img}
@@ -122,7 +113,7 @@ function Single() {
                                 userJob={e.user_job}
                                 id={e.post_id}
                             />
-            </Link></SwiperSlide>
+            </NavLink></SwiperSlide>
        })}
       
       {/* <button>prev</button>
