@@ -40,9 +40,9 @@ function Home() {
     useEffect(() => {
         drop ? dropDown.current.classList.add('active') : dropDown.current.classList.remove('active')
     }, [drop]);
-    //fetch
+    // fetch
     useEffect(() => {
-        fetch(`https://pressabackend.herokuapp.com/cards?type=${type?type:3}&data=${time.current.value}&search=${searchVal.current.value}&catigor=${subcat?subcat:''}`)
+        fetch(`https://doubleressabaza.herokuapp.com/cards/?type=${type?type:3}&data=${time.current.value}&search=${searchVal.current.value}&catigor=${subcat?subcat:''}`)
             .then(res => res.json())
             .then(data => {
                 setData(data)
@@ -59,7 +59,7 @@ function Home() {
     // categrori
 
     useEffect(() => {
-        fetch(`https://pressabackend.herokuapp.com/catigories`)
+        fetch(`https://doubleressabaza.herokuapp.com/cards/`)
             .then(res => res.json())
             .then(data => {
                 setCatecorylist(data);
@@ -141,8 +141,9 @@ function Home() {
 
                     {data && data.map((e, i) => {
                         return (
-                            <Cards
-                                key={i}
+                             <NavLink key={i} to={`/single/${e.post_id}`}>
+                                 <Cards
+                                
                                 postImg={e.post_img}
                                 postName={e.post_thema}
                                 postAuthor={`${e.user_name} ${e.user_fname}`}
@@ -150,8 +151,9 @@ function Home() {
                                 date={e.start_data}
                                 userJob={e.user_job}
                                 id={e.post_id}
-
                             />
+
+                             </NavLink>
                         )
                     })
                     }

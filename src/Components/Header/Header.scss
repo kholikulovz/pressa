@@ -66,14 +66,19 @@
 .add{
     color: #fff !important;
     margin-left: 10px;
-    box-shadow:  0 0 10px #FF7D35;
     @include button;
+    animation-name: btn;
+    transition: .5s;
+
+    // animation-timing-function: linear;
+    // animation-duration: 1.5s;
+    // animation-iteration-count: infinite;
+    // animation-play-state: running;
     &:hover{
-        animation-name: btn;
-        animation-timing-function: linear;
-        animation-duration: 1.5s;
-        animation-iteration-count: infinite;
-        animation-play-state: running;
+        box-shadow:  0 0 20px #FF7D35;
+        transition: .5s;
+        animation: none;
+
     }
     &:active{
         color: #fff !important;
@@ -95,17 +100,17 @@
 }
 
 
-@keyframes btn{
-    0%{
-        box-shadow:  0 0 10px #FF7D35;
-    }
-    50%{
-        box-shadow:  0 0 0 #FF7D35;
-    }
-    100%{
-        box-shadow:  0 0 10px #FF7D35;
-    }
-}
+// @keyframes btn{
+//     0%{
+//         box-shadow:  0 0 20px #FF7D35;
+//     }
+//     50%{
+//         box-shadow:  0 0 0 #FF7D35;
+//     }
+//     100%{
+//         box-shadow:  0 0 20px #FF7D35;
+//     }
+// }
 
 
 @media screen and (max-width:744px) {
@@ -225,10 +230,7 @@
         }
     }
     
-    .active{
-        color: #FF7D35 !important;
-        
-    }
+  
 
     
 }

@@ -11,7 +11,7 @@ function Admin() {
 
 
     useEffect(()=>{
-        fetch('https://pressabackend.herokuapp.com/cards/admin/check', {
+        fetch('https://doubleressabaza.herokuapp.com/cards/admin/check', {
             method:"GET",
             headers:{
                 "Content-Type":"application/json",
@@ -68,9 +68,9 @@ function Admin() {
                               return  <li key={i} className='column__card'>
                             <div className="column__card-left">
                                 <h2 className='column__card-title'>{e.post_thema}</h2>
-                                <span className='column__card-author column__card-span'>Alisher Sadullayev</span>
-                                <span className='column__card-date column__card-span'>28 Yanvar  |  20:00</span>
-                                <span className='column__card-phone column__card-span'>+998 90 325 36 32</span>
+                                <span className='column__card-author column__card-span'>{`${e.user_name} ${e.user_fname}`}</span>
+                                <span className='column__card-date column__card-span'>{e.start_data}</span>
+                                <span className='column__card-phone column__card-span'>{e.user_phone}</span>
                             </div>
                             <div className="column__card-right">
                                 <button className='column__card-btn column__card-btn--blue' id={e.post_id} onClick={()=>{
@@ -95,7 +95,7 @@ function Admin() {
                                     // console.log(data);
                                 }}>Tasdiqlash</button>
                                 <button className='column__card-btn column__card-btn--white' onClick={()=>{
-                                    fetch(`https://pressabackend.herokuapp.com/poster`, {
+                                    fetch(`https://doubleressabaza.herokuapp.com/poster`, {
                                         method:"DELETE", 
                                         headers:{
                                             "Content-Type":"application/json",

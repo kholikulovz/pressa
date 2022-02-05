@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Announce.scss";
 import { Link } from "react-router-dom";
 // import { DatePicker } from "rsuite";
@@ -10,49 +10,59 @@ import TimePicker from '@mui/lab/TimePicker';
 import DateTimePicker from '@mui/lab/DateTimePicker';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import MobileDatePicker from '@mui/lab/MobileDatePicker';
+import arrow from '../../Assets/Images/arrow.svg';
 
 
 function Announce() {
   //states
-  const [type, setType] = useState('');
   const [categ, setCateg] = useState('');
   const [subcat, setSubcat] = useState('');
-  const [job, setJob] = useState();
-  const [line, setLine] = useState(2); // otvorayabti
-  
+  const [wer, setWer] = useState();
+  const [line, setLine] = useState('');
+  const [category, setCategory] = useState([]);
+  const [subCategory, setsubCategory] = useState([]);
+  const [isAbled, setisAbled] = useState(false);
+  const [chosen, setChosen] = useState(null);
+  const [active, setActive] = useState(false);
+  const [value, setValue] = useState(new Date('2022-01-01T00:00:00'));
+  const [ time, setTime] = useState();
+
+
+
   //refs
-  const time = useRef();
+
   const name = useRef();
   const surname = useRef();
   const link = useRef();
   const tel = useRef();
+  const job = useRef();
   const theme = useRef();
   const short = useRef();
   const desc = useRef();
+  const file = useRef();
+  const dropDown = useRef();
+  const subDrop = useRef();
 
-  const [value, setValue] = useState(new Date('2022-01-01T00:00:00'));
-// const [state, setState] = useState({
-//     profileImg:
-//       "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-//   })
-//   state = {
-//     profileImg:
-//       "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-//   };
-//  const imageHandler = e => {
-//     const reader = new FileReader();
-//     reader.onload = () => {
-//       if (reader.readyState === 2) {
-//         this.setState({ profileImg: reader.result });
-//       }
-//     };
-//     reader.readAsDataURL(e.target.files[0]);
-//   };
-//   const { profileImg } = this.state;
+  useEffect(() => {
+    fetch(`https://doubleressabaza.herokuapp.com/catigories`)
+      .then(res => res.json())
+      .then(data => {
+        setCategory(data);
+      })
+
+  }, [])
 
   const handleChange = (newValue) => {
     setValue(newValue);
   };
+
+
+  useEffect(() => {
+    active ? dropDown.current.classList.add('mySelect__active') : dropDown.current.classList.remove('mySelect__active')
+  }, [active]);
+  useEffect(() => {
+    isAbled ? subDrop.current.classList.add('mySelect__active') : subDrop.current.classList.remove('mySelect__active')
+  }, [isAbled]);
 
   return (
     <div className="announce">
@@ -80,128 +90,215 @@ function Announce() {
           </p>
         </div>
 
-        <div className="announce__criteria announce__cards">
-          <h3 className="announce__cards-title">Tadbir kriteriyasi</h3>
-          <form action="" className="announce__form">
-            <ul className="announce__form-menu">
-              <li className="announce__form-box announce__form-box--small">
-                {/* <label className="announce__form-label" htmlFor="">O’tkaziladigan sanani kiriting</label> */}
-                {/* <input className="announce__form-input" type="datetime-local" /> */}
-                <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <Stack spacing={3}>
-        {/* <DesktopDatePicker
-          label="Date desktop"
-          inputFormat="MM/dd/yyyy"
-          value={value}
-          onChange={handleChange}
-          renderInput={(params) => <TextField {...params} />}
-        /> */}
-        {/* <MobileDatePicker
-          label="Date mobile"
-          inputFormat="MM/dd/yyyy"
-          value={value}
-          onChange={handleChange}
-          renderInput={(params) => <TextField {...params} />}
-        />
-        <TimePicker
-          label="Time"
-          value={value}
-          onChange={handleChange}
-          renderInput={(params) => <TextField {...params} />}
-        /> */}
-        <DateTimePicker className="announce__form-input"
-          // label="Date&Time picker"
-          value={value}
-          onChange={handleChange}
-          renderInput={(params) => <TextField {...params} />}
-        />
-      </Stack>
-    </LocalizationProvider>
-              </li>
-              <li className="announce__form-box announce__form-box--small">
-                <label className="announce__form-label" htmlFor="">Yo’nalishni belgilang</label>
-                <select className="announce__form-input" name="route" id="">
-                  <option value="" disabled selected>
-                    Yo’nalish
-                  </option>
-                </select>
-              </li>
-              <li className="announce__form-box announce__form-box--small">
-                <label className="announce__form-label" htmlFor="">Ichki yo’nalishni belgilang</label>
-                <select className="announce__form-input" name="inner-route" id="">
-                  <option value=""disabled selected>
-                    Ichki yo'nalish
-                  </option>
-                </select>
-              </li>
-              <li className="announce__form-box announce__form-box--small">
-                <label className="announce__form-label" htmlFor="">Tadbir turi</label>
-                <div className="announce__criteria-buttons">
-                  <button className={`announce__criteria-btn ${line==1?'announce__criteria-btn--active':''}`} onClick={()=>{
-                                setLine(1)
-                            }}>Online</button>
-                  <button className={`announce__criteria-btn ${line==2?'announce__criteria-btn--active':''}`} onClick={()=>{
-                                setLine(2)
-                            }}>Offline</button>
-                </div>
-              </li>
-              <li className="announce__form-box announce__form-box--middle">
-                <label className="announce__form-label" htmlFor="">Link kiriting</label>
-                <input className="announce__form-input" type="text" placeholder="Link" />
-              </li>
-            </ul>
-          </form>
-        </div>
-        <div className="announce__personal announce__cards">
-          <h3 className="announce__cards-title">Shaxsiy ma’lumotlar:</h3>
-          <form action="" className="announce__form">
-            <ul className="announce__form-menu">
-              <li className="announce__form-box announce__form-box--small">
-                <label className="announce__form-label" htmlFor="">Ism</label>
-                <input className="announce__form-input" type="text" placeholder="Ism" />
-              </li>
-              <li className="announce__form-box announce__form-box--small">
-                <label className="announce__form-label" htmlFor="">Familiya</label>
-                <input className="announce__form-input" type="text" placeholder="Familiya" />
-              </li>
-              <li className="announce__form-box announce__form-box--small">
-                <label className="announce__form-label" htmlFor="">Telefon raqamingiz</label>
-                <input className="announce__form-input" type="tel" placeholder="+998" />
-              </li>
-              <li className="announce__form-box announce__form-box--small">
-                <label className="announce__form-label" htmlFor="">Kasb</label>
-                <select className="announce__form-input" name="inner-route" id="">
-                  <option value="" disabled selected>
-                    Kasbingiz
-                  </option>
-                </select>
-              </li>
-            </ul>
-          </form>
-        </div>
-        <div className="announce__post announce__cards">
-          <h3 className="announce__cards-title">Post</h3>
-          <form action="" className="announce__form">
-            <ul className="announce__form-menu">
-              <li className="announce__form-box announce__form-box--big">
-                <label className="announce__form-label" htmlFor="">Mavzu nomini kiriting</label>
-                <input className="announce__form-input" type="text" placeholder="Mavzu" />
-              </li>
-              <li className="announce__form-box announce__form-box--big">
-                <label className="announce__form-label" htmlFor="">Qisqa izoh kiriting</label>
-                <input className="announce__form-input" type="text" placeholder="Izoh" />
-              </li>
-              <li className="announce__form-box announce__form-box--big">
-                <label className="announce__form-label" htmlFor="">Batafsil ma'lumot</label>
-                <textarea className="announce__form-input announce__form-teaxtarea" type="text" placeholder="Batafsil ma'lumot" />
-              </li>
-            </ul>
-            <div className="announce__post-buttons">
-              <button className="announce__post-btn announce__post-btn--white" id="reject-btn">Bekor qilish</button>
-              <button className="announce__post-btn announce__post-btn--blue" id="send-btn">Yuborish</button>
-            </div>
-<input type="file" />
-{/* <div className="page">
+        <form action=""
+          onSubmit={(e) => {
+            e.preventDefault();
+            
+            let formdata=new FormData();
+            formdata.append("file", file.current.files[0])
+            formdata.append("user_name", name.current.value)
+            formdata.append("user_fname", surname.current.value)
+            formdata.append("user_job", job.current.value )
+            formdata.append("user_phone",tel.current.value)
+            formdata.append("post_thema", theme.current.value)
+            formdata.append("post_comment",short.current.value )
+            formdata.append("post_more",desc.current.value )
+            formdata.append("type",line )
+            formdata.append("start_data",time)
+            formdata.append("catigories", categ)
+            formdata.append("subcatigories", subcat)
+            formdata.append("meeting_place",link.current.value )
+
+            fetch('https://doubleressabaza.herokuapp.com/poster', {
+              method:"POST", 
+              body:formdata
+            })
+            .then(res=> res.json())
+            .then(data=>console.log(data))
+            
+            //  console.log({
+            //    time:time, 
+            //    category:categ, 
+            //    subcategory:subcat, 
+            //    type:line,
+            //    link: link.current.value,
+            //    name:name.current.value, 
+            //    surname:surname.current.value, 
+            //    tel:tel.current.value, 
+            //    job:job.current.value, 
+            //    theme:theme.current.value, 
+            //    short:short.current.value, 
+            //    desc:desc.current.value,
+            //    file:file.current.value
+
+            //  })
+
+
+
+
+          }}>
+          <section className="announce__criteria announce__cards">
+            <h3 className="announce__cards-title">Tadbir kriteriyasi</h3>
+            <section className="announce__form" >
+              <ul className="announce__form-menu">
+                <li className="announce__form-box announce__form-box--small">
+                  {/* <label className="announce__form-label" htmlFor="">O’tkaziladigan sanani kiriting</label> */}
+                  {/* <input className="announce__form-input" type="datetime-local" /> */}
+                  <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <Stack spacing={3}>
+
+
+
+                      {/* <input ref={time} type="datetime-local" onChange={(e)=>{
+                        console.log(e.target.value)
+                      }}/> */}
+
+                      <DateTimePicker className="announce__form-input"
+                        value={value}
+                        onChange={handleChange}
+                        renderInput={(params) => {
+                        
+                        
+                        
+                        
+                      
+                            let date = new Date(params.inputProps.value)
+                            let mnth = ("0" + (date.getMonth() + 1)).slice(-2)
+                            let day = ("0" + date.getDate()).slice(-2);
+                            let hours = ("0" + date.getHours()).slice(-2);
+                            let minut = ("0" + date.getMinutes()).slice(-2);
+                            let sekund = ("0" + date.getSeconds()).slice(-2);
+                          
+                            let sana = [date.getFullYear(), mnth, day].join("-");
+                            let vaqat = [hours, minut].join(":");
+                            console.log( sana +' '+vaqat)
+                            setTime(sana +' '+vaqat)
+
+                          console.log(params.inputProps.value);
+                          return <TextField {...params} />
+                        }}
+                      />
+                    </Stack>
+                  </LocalizationProvider>
+                </li>
+                <li className="announce__form-box announce__form-box--small">
+                  <label className="announce__form-label" htmlFor="">Yo’nalishni belgilang</label>
+                  <div className="announce__form-input mySelect" name="route" onClick={() => {
+
+                    setActive(!active);
+                    setSubcat('');
+
+                  }}><span className="announce__category">{categ ? categ : 'Yo’nalish'}</span><img className="announce__arrow" src={arrow} style={{ 'transform': `rotate(${active ? '180deg' : '0deg'})` }} alt="" />
+
+                    <ul className="announce__dropdown-list" ref={dropDown} >
+                      {category.map((e, i) => {
+                        return <li key={i} className="announce__dropdown-item" onClick={() => {
+                          setCateg(e.cat_name);
+                          setChosen(i);
+                          setsubCategory(category[i].subcat)
+
+                          dropDown.current.classList.remove('mySelect__active');
+                        }}>{e.cat_name}</li>
+                      })}
+                    </ul>
+
+                  </div>
+
+                </li>
+                <li className="announce__form-box announce__form-box--small">
+                  <label className="announce__form-label" htmlFor="">Ichki yo’nalishni belgilang</label>
+
+
+                  <div className="announce__form-input mySubSelect" onClick={() => {
+
+                    setisAbled(!isAbled);
+
+
+                  }}><span className="announce__category">{subcat ? subcat : 'Ichki yo’nalish'}</span><img className="announce__arrow" src={arrow} style={{ 'transform': `rotate(${isAbled ? '180deg' : '0deg'})` }} alt="" />
+
+                    <ul className="announce__dropdown-list" ref={subDrop} >
+                      {subCategory.map((e, i) => {
+                        return <li key={i} className="announce__dropdown-item" onClick={() => {
+                          subDrop.current.classList.remove('mySelect__active');
+                          setSubcat(e)
+
+                        }}>{e}</li>
+                      })}
+                    </ul>
+
+                  </div>
+
+
+
+
+
+
+
+                </li>
+                <li className="announce__form-box announce__form-box--small">
+                  <label className="announce__form-label" htmlFor="">Tadbir turi</label>
+                  <div className="announce__criteria-buttons">
+                    <button type='button' className={`announce__criteria-btn ${line == 1 ? 'announce__criteria-btn--active' : ''}`} onClick={() => {
+                      setLine(1);
+                    }}>Online</button>
+                    <button type="button" className={`announce__criteria-btn ${line == 2 ? 'announce__criteria-btn--active' : ''}`} onClick={() => {
+                      setLine(2);
+                    }}>Offline</button>
+                  </div>
+                </li>
+                <li className="announce__form-box announce__form-box--middle">
+                  <label className="announce__form-label" htmlFor="">Link kiriting</label>
+                  <input className="announce__form-input" ref={link} type="text" placeholder="Link" />
+                </li>
+              </ul>
+            </section>
+          </section>
+          <section className="announce__personal announce__cards">
+            <h3 className="announce__cards-title">Shaxsiy ma’lumotlar:</h3>
+            <section className="announce__form">
+              <ul className="announce__form-menu">
+                <li className="announce__form-box announce__form-box--small">
+                  <label className="announce__form-label"  htmlFor="">Ism</label>
+                  <input className="announce__form-input" ref={name} type="text" placeholder="Ism" />
+                </li>
+                <li className="announce__form-box announce__form-box--small">
+                  <label className="announce__form-label" htmlFor="">Familiya</label>
+                  <input className="announce__form-input" ref={surname} type="text" placeholder="Familiya" />
+                </li>
+                <li className="announce__form-box announce__form-box--small">
+                  <label className="announce__form-label" htmlFor="">Telefon raqamingiz</label>
+                  <input className="announce__form-input" ref={tel} type="tel" placeholder="+998" />
+                </li>
+                <li className="announce__form-box announce__form-box--small">
+                  <label className="announce__form-label" htmlFor="">Kasb</label>
+                  <input className="announce__form-input" ref={job} type="tel" placeholder="+998" />
+                </li>
+              </ul>
+            </section>
+          </section>
+          <section className="announce__post announce__cards">
+            <h3 className="announce__cards-title">Post</h3>
+            <section action="" className="announce__form">
+              <ul className="announce__form-menu">
+                <li className="announce__form-box announce__form-box--big">
+                  <label className="announce__form-label" htmlFor="">Mavzu nomini kiriting</label>
+                  <input className="announce__form-input" type="text" ref={theme} placeholder="Mavzu" />
+                </li>
+                <li className="announce__form-box announce__form-box--big">
+                  <label className="announce__form-label" htmlFor="">Qisqa izoh kiriting</label>
+                  <input className="announce__form-input" ref={short} type="text" placeholder="Izoh" />
+                </li>
+                <li className="announce__form-box announce__form-box--big">
+                  <label className="announce__form-label" htmlFor="">Batafsil ma'lumot</label>
+                  <textarea className="announce__form-input announce__form-teaxtarea" ref={desc} type="text" placeholder="Batafsil ma'lumot" />
+                </li>
+                <li className="announce__form-box announce__form-box--big">  <input type="file" ref={file} /></li>
+              </ul>
+              <div className="announce__post-buttons">
+                <button className="announce__post-btn announce__post-btn--white" id="reject-btn">Bekor qilish</button>
+                <button className="announce__post-btn announce__post-btn--blue" id="send-btn">Yuborish</button>
+              </div>
+              {/* <div className="page">
         <div className="my-container">
           <h1 className="heading">Add your Image</h1>
           <div className="img-holder">
@@ -222,11 +319,25 @@ function Announce() {
           </div>
         </div>
       </div> */}
-          </form>
-        </div>
+            </section>
+          </section>
+        </form>
       </div>
     </div>
   );
 }
 
 export default Announce;
+
+
+
+
+
+
+
+
+
+
+
+
+

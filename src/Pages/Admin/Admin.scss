@@ -104,6 +104,14 @@
                 background: #FFFFFF;
                 color: #355199;
             }
+            &:hover{
+                box-shadow: 0 0 3px #000;
+                transition: .3s;
+            }
+            &:active{
+                box-shadow: 0 0 10px #000;
+                transition: .3s;
+            }
         }
     }
 }

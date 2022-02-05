@@ -17,7 +17,7 @@ function Cards(props){
                 <span className="card__type">{type==1?'online':'offline'}</span>
             </div>
             </div>
-            <img src={`https://pressabackend.herokuapp.com${postImg}`} alt="img" className="card__img" />
+            <img src={`https://doubleressabaza.herokuapp.com${postImg}`} alt="img" className="card__img" />
         </li>
     )
 }

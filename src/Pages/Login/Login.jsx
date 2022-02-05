@@ -11,7 +11,7 @@ function Login() {
         <div className="login__wrapper">
           <form action="" className='login__form' method='post' onSubmit={(e) => {
             e.preventDefault();
-            fetch('https://pressabackend.herokuapp.com/auth/login', {
+            fetch('https://doubleressabaza.herokuapp.com/auth/login', {
               method: 'POST',
               headers: {
                 "Content-Type": "application/json"
