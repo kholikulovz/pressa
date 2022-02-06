@@ -61,8 +61,7 @@ function Single() {
               <div className="single__timebox">
                   <span className="single__left-calendar single__times">
                       <img className="single__left-calendar-img single__times-img" src={Calendar} alt="" />{data.start_data}</span>
-                  <span className="single__left-clock single__times">
-                      <img className="single__left-clock-img single__times-img" src={Clock} alt="" />11:00</span>
+                 
               </div>
           </div>
           <div className="single__center">

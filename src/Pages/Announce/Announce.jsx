@@ -23,6 +23,7 @@ function Announce() {
   const [active, setActive] = useState(false);
   const [value, setValue] = useState(new Date('2022-01-01T00:00:00'));
   const [time, setTime] = useState('');
+  const [message, setMessage] = useState('');
 
 
 
@@ -69,8 +70,7 @@ function Announce() {
       <div className="container">
         <div className="announce__modal" ref={modal} >
           <div className="announce__modal-box">
-            <h4 className="announce__modal-title">E'lon tekshirishga yuborildi</h4>
-            <p className="announce__modal-text">Sizning e‘loningiz 10 daqiqa ichida saytga joylanadi.</p>
+            <h4 className="announce__modal-title" style={{"marginBottom":40}}>{message}</h4>
             <Link to='/' className="announce__modal-btn">Bosh sahifa</Link>
           </div>
         </div>
@@ -117,9 +117,16 @@ function Announce() {
             .then(data=>{
               console.log(data)
               if( !(data.status==400||data.satus==500)){
-                  modal.current.classList.add('announce__modal--active')
+                  modal.current.classList.add('announce__modal--active');
+                  setMessage("E'lon tekshirishga yuborildi")
+              }else{
+                modal.current.classList.add('announce__modal--active');
+                setMessage("Xatolik yuz berdi qayta harakat qilib ko'ring")
+
+
               }
-            })
+            }
+            )
             
             //  console.log({
             //    time:time, 
@@ -257,7 +264,7 @@ function Announce() {
                 </li>
                 <li className="announce__form-box announce__form-box--small">
                   <label className="announce__form-label" htmlFor="">Telefon raqamingiz(99893234..)</label>
-                  <input className="announce__form-input" ref={tel} type="tel" placeholder="+998.." />
+                  <input className="announce__form-input" ref={tel} type="tel" placeholder="998.." />
                 </li>
                 <li className="announce__form-box announce__form-box--small">
                   <label className="announce__form-label" htmlFor="">Kasb</label>

@@ -159,6 +159,7 @@
 @media screen and (max-width:425px){
     .header{
         .mobile__modal{
+            width: 100% !important;
             position:fixed;
             display: none;
             z-index: 1;
