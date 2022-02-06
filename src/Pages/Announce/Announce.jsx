@@ -71,7 +71,7 @@ function Announce() {
           <div className="announce__modal-box">
             <h4 className="announce__modal-title">E'lon tekshirishga yuborildi</h4>
             <p className="announce__modal-text">Sizning e‘loningiz 10 daqiqa ichida saytga joylanadi.</p>
-            <Link to='/' className="announce__modal-btn">Bsoh sahifa</Link>
+            <Link to='/' className="announce__modal-btn">Bosh sahifa</Link>
           </div>
         </div>
         <div className="announce__intro">
